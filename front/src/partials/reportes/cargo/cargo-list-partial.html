@@ -1,0 +1,57 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li class="active">
+            <a>Cargo <span class="badge">1</span></a>
+        </li>
+        <li>
+            <a href="#!{{path}}/crear" title="Ir a crear Cargo">Gestionar Cargo </a>
+        </li>
+        <li>
+            <a> Consultar Cargo </a>
+        </li>
+    </ul>
+</div>
+
+<lista-directive data-require="LISTAR_CARGOS" data-require-fail="redirect">
+    <filtros>
+        <div class="form-group">
+            <label class="control-label">Descripción:</label>
+            <input type="text" class="form-control" ng-model="filterBy.descripcion"
+            ng-keypress="aplicarFiltros($event)" />
+        </div>
+        <!--<div class="form-group">
+            <label class="control-label">Línea:</label>
+            <input type="text" class="form-control" ng-model="filterBy.linea" />
+        </div>-->
+        <div class="form-group">
+            <label class="control-label">Categoría:</label>
+            <input type="text" class="form-control" ng-model="filterBy.categoria"
+            ng-keypress="aplicarFiltros($event)" />
+        </div>
+    </filtros>
+    <titulo>Cargos existentes</titulo>
+    <descripcion>A través de esta sección usted podrá consultar la lista de los Cargos existentes.
+    </descripcion>
+    <tabla>
+        <table class="table table-striped">
+            <thead tasty-thead=""></thead>
+            <tbody ng-if="loading == false">
+                <tr ng-repeat="row in config.rows">
+                    <td>{{row.pk.descripcion}}</td>
+                    <!--<td>{{row.linea}}</td>-->
+                    <td>{{row.categoria}}</td>
+                    <td>{{row.presupuestado | number}}</td>
+                    <td>{{row.funcionReal}}</td>
+                    <td>{{row.estado}}</td>
+                    <td>
+                        <a ng-href="#!{{path}}/{{row.id}}/ver"> 
+                            <i class="fa fa-eye"></i> Ver 
+                        </a> &nbsp;
+                        <!--<a ng-href="#!{{path}}/{{row.id}}/editar"><i class="fa fa-pencil-square-o"></i> Editar </a> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </tabla>
+</lista-directive>

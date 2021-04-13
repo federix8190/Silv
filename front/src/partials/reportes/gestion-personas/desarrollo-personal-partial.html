@@ -1,0 +1,150 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li class="active">
+            <a>Gestion - Personas
+                <span class="badge">1</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<br/>
+<div class="row">
+    <nav class="col-md-3 ">
+        <div class="form-wrapper">
+            <div class="top-block">
+                <h2 class="title-top ">Filtros</h2>
+                <p>Criterios de búsqueda.</p>
+            </div>
+            <div class="form">
+                <div ng-include="'partials/common/filtros-reportes-partial.html'"></div>
+            </div>
+        </div>
+    </nav>
+    <section class="col-md-9">
+        <section class="form-wrapper">
+            <div class="top-block">
+                <h2 class="title-top">Índice de Desarrollo de Personal</h2>
+                <p> Distribución de la planta según niveles estimados en desarrollo de ingresos y egresos salariales.
+                </p>
+            </div>
+            <table class="matriz-congruencia">
+                <thead>
+                <tr>
+                    <th colspan="2">PERIODO</th>
+                    <th rowspan="2">CARGOS TOTALES</th>
+                    <th colspan="3">EGRESOS</th>
+                    <th colspan="3">INGRESOS</th>
+                    <th colspan="2">VARIACION</th>
+                </tr>
+                <tr>
+                    <th>Año</th>
+                    <th>Mes</th>
+                    <th>Cantidad</th>
+                    <th>Tramo salarial promedio</th>
+                    <th>Salario basico promedio</th>
+                    <th>Cantidad</th>
+                    <th>Tramo salarial promedio</th>
+                    <th>Salario basico promedio</th>
+                    <th>Tramo salarial</th>
+                    <th>Salario basico</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr ng-if="loading == true">
+                    <td colspan="11">
+                        <div class="loading"><img src="/images/cargando.gif"><br/>
+                            <p>Cargando...</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-if="loading == null">
+                    <td colspan="11">
+                        <no-data></no-data>
+                    </td>
+                </tr>
+                </tfoot>
+                <tbody>
+                <tr ng-repeat="row in puestos">
+                    <td>{{row.anho}}</td>
+                    <td>{{row.mes}}</td>
+                    <td>{{row.totalCargos | number}}</td>
+                    <td>{{row.egresos | number}}</td>
+                    <td style="background-color:#b35900; color:white;">{{row.promTramosEgresos}}</td>
+                    <td style="background-color:#b35900; color:white;">{{row.promSalariosEgresos | number}}</td>
+                    <td>{{row.ingresos | number}}</td>
+                    <td style="background-color:#384d00; color:white;">{{row.promTramosIngresos}}</td>
+                    <td style="background-color:#384d00; color:white;">{{row.promSalariosIngresos | number}}</td>
+                    <td>{{row.varTramos | number : 3}}</td>
+                    <td>{{row.varSalarios | number}}</td>
+                </tr>
+                </tbody>
+            </table>
+ <hr ng-show="puestos.length > 0 && loading != true">
+            <div ng-show="loading != true" id="container1"></div>
+            <hr ng-show="puestos.length > 0 && loading != true">
+            <div ng-show="loading != true" id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+            <hr ng-show="puestos.length > 0 && loading != true">
+            <div ng-show="loading != true" id="container3"></div>
+            <hr ng-show="puestos.length > 0 && loading != true">
+            <div ng-show="loading != true" id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+
+            <table class="matriz-dp" ng-repeat="row in puestos">
+                <thead>
+                    <tr><th></th><th>Período {{row.mes}}-{{row.anho}}</th><th></th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="cnt">&nbsp;</td>
+                        <td>30</td>
+                        <td class="cnt">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td ng-if="mayorIngreso(row.promTramosEgresos, row.promTramosIngresos) == false || mayorMenor(row.promTramosEgresos, row.promTramosIngresos) == 0" class="cnt">&nbsp;</td>
+                        <td ng-if="mayorIngreso(row.promTramosEgresos, row.promTramosIngresos) == true && mayorMenor(row.promTramosEgresos, row.promTramosIngresos) != 0" class="cnt-1">{{mayorMenor(row.promTramosEgresos, row.promTramosIngresos)}} <span style="font-size: 11px !important;"><br>INGRESOS - Tramo Salarial Promedio {{row.promSalariosIngresos}}</td>
+                        <td>...</td>
+                        <td ng-if="mayorEgreso(row.promTramosEgresos, row.promTramosIngresos) == false || mayorMenor(row.promTramosEgresos, row.promTramosIngresos) == 0" class="cnt">&nbsp;</td>
+                        <td ng-if="mayorEgreso(row.promTramosEgresos, row.promTramosIngresos) == true && mayorMenor(row.promTramosEgresos, row.promTramosIngresos) != 0" class="cnt-0">{{mayorMenor(row.promTramosEgresos, row.promTramosIngresos)}} <span style="font-size: 11px !important;"><br>EGRESOS - Tramo Salarial Promedio {{row.promSalariosEgresos}}</td>
+                    </tr>
+                    <tr>
+                        <td class="cnt">&nbsp;</td>
+                        <td>{{mayorMenor(row.promTramosEgresos, row.promTramosIngresos)}}</td>
+                        <td class="cnt">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="cnt">&nbsp;</td>
+                        <td>...</td>
+                        <td ng-if="row.varTramos != 0" class="cnt-2">{{row.varTramos | number : 3}}<br><span style="font-size: 11px !important;">PROMOCIONES RESULTANTES - Tramos Salariales Promedio {{row.varSalarios}}</span></td>
+                        <td ng-if="row.varTramos == 0 || row.varTramos == null" class="cnt">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="cnt">&nbsp;</td>
+                        <td>{{menorMayor(row.promTramosEgresos, row.promTramosIngresos)}}</td>
+                        <td class="cnt">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td ng-if="mayorIngreso(row.promTramosEgresos, row.promTramosIngresos) == true || menorMayor(row.promTramosEgresos, row.promTramosIngresos) == 0" class="cnt">&nbsp;</td>
+                        <td ng-if="mayorIngreso(row.promTramosEgresos, row.promTramosIngresos) == false && menorMayor(row.promTramosEgresos, row.promTramosIngresos) != 0" class="cnt-1">{{menorMayor(row.promTramosEgresos, row.promTramosIngresos)}} <span style="font-size: 11px !important;"><br>INGRESOS - Tramo Salarial Promedio {{row.promSalariosIngresos}}</span></td>
+                        <td>...</td>
+                        <td ng-if="mayorEgreso(row.promTramosEgresos, row.promTramosIngresos) == true || menorMayor(row.promTramosEgresos, row.promTramosIngresos) == 0" class="cnt">&nbsp;</td>
+                        <td ng-if="mayorEgreso(row.promTramosEgresos, row.promTramosIngresos) == false && menorMayor(row.promTramosEgresos, row.promTramosIngresos) != 0" class="cnt-0">{{menorMayor(row.promTramosEgresos, row.promTramosIngresos)}} <span style="font-size: 11px !important;"><br>EGRESOS - Tramo Salarial Promedio {{row.promSalariosEgresos}}</td>
+                    </tr>
+                    <tr>
+                        <td class="cnt">&nbsp;</td>
+                        <td>1</td>
+                        <td class="cnt">&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <footer-tabla>
+                <hr/>
+                <h5>Descargar: </h5>
+                <a ng-click="generarReporte()">
+                    <i type="button" class="fa fa-file-excel-o"></i> EXCEL</a>
+            </footer-tabla>
+        </section>
+    </section>
+</div>

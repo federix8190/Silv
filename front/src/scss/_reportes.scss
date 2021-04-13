@@ -1,0 +1,61 @@
+.matriz-congruencia{
+    width: 100%;
+    tr{
+        width: 100%;
+    }
+    th{
+        background:$pane-gray-bg;
+        width: 8.33%;
+    }
+    td, th{
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border:1px solid $pane-gray-border;
+    }
+    
+    tfoot{
+        background:$pane-gray-bg;
+    }
+    .cnt-0 {
+        color: transparent;
+        background-color: #ffe0e6;
+    }
+    .cnt-4 {
+        color: transparent;
+        background-color: #d0d0f2;
+    }
+    .cnt-3 {
+        color: red;
+        background-color: #d0d0f2;
+    }
+    .cnt-2 {
+        color: red;
+        background-color: #ffe0e6;
+    }
+    .cnt-1 {
+        background-color: #b4f49f;
+    }
+    .tramos{
+        background:$pane-gray-bg;
+        width: 11px;
+        div{
+            transform: rotate(-90deg);
+            position: absolute;
+            /*
+            Son 50 por la cantidad de caracteres de título de la izquierda.
+            */
+            left: -5.8%;
+            font-weight: bold;
+        }
+    }
+}
+
+
+.asignar-legajos-1 {
+    color: RED;
+}
+
+.detalle-legajo{
+    margin-left: 260px !important;
+}

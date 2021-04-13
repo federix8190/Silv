@@ -1,0 +1,44 @@
+<br/>
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!{{path}}" title="Ir a Buscar CPT-EF ">CPT-EF <span class="badge">1</span></a>
+        </li>
+        <li>
+            <a href="#!{{path}}/{{recurso.id}}/editar" title="Ir a modificar CPT-EF ">Gestionar CPT-EF <span
+                    class="badge">2</span></a>
+        </li>
+        <li class="active">
+            <a> Consultar CPT-EF <span class="badge">3</span></a>
+        </li>
+    </ul>
+</div>
+
+<view-directive data-require="LISTAR_CPT_EF" data-require-fail="redirect">
+    <titulo>Consultar Clasificador de puesto de trabajo específico funcional (CPT-EF)</titulo>
+    <descripcion>A través de esta sección usted podrá consultar los datos de los Clasificadores de puesto de trabajo
+        específico funcional.
+    </descripcion>
+    <view>
+        <dt>Denominación :</dt>
+        <dd>{{recurso.den}}</dd>
+        <dt>Número :</dt>
+        <dd>{{recurso.nro}}</dd>
+        <dt>Clase General :</dt>
+        <dd>{{recurso.cpt.denominacion}}</dd>
+        <dt>Ámbito :</dt>
+        <dd>{{recurso.ambito.nombre}}</dd>
+        <dt>Código Proceso :</dt>
+        <dd>{{recurso.codProceso}}</dd>
+        <dt>Orientación Funcional :</dt>
+        <dd>{{recurso.orientacionFunc.nombre}}</dd>
+        <dt>MECIP :</dt>
+        <dd>
+            <div ng-repeat="mecip in recurso.mecip">
+                {{mecip.codigo + ' - ' + mecip.denominacionMECIP}}
+                <br>
+            </div>
+        </dd>
+    </view>
+</view-directive>

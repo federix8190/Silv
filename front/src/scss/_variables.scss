@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+/**
+* Colores base
+*/
+
+$pane-bg: #3a74a7;
+$pane-active-bg: $pane-bg;
+$table-bg-accent: lighten($pane-bg, 50%);
+$table-border-color: lighten($pane-bg, 35%) !default;

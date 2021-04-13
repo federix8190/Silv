@@ -1,0 +1,49 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li class="active">
+            <a>Roles <span class="badge">1</span></a>
+        </li>
+        <li>
+            <a href="#!{{path}}/crear" title="Ir a crear Rol">Gestionar Rol</a>
+        </li>
+        <li>
+            <a> Consultar Rol</a>
+        </li>
+    </ul>
+</div>
+
+<lista-directive data-require="LISTAR_ROLES" data-require-fail="redirect">
+    <filtros>
+        <div class="form-group">
+            <label class="control-label">C&oacute;digo:</label>
+            <input type="text" class="form-control" ng-model="filterBy.codigo"
+            ng-keypress="aplicarFiltros($event)" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Descripci&oacute;n:</label>
+            <input type="text" class="form-control" ng-model="filterBy.descripcion" 
+            ng-keypress="aplicarFiltros($event)"/>
+        </div>
+    </filtros>
+    <titulo>Roles</titulo>
+    <descripcion>A través de esta sección usted podrá consultar la lista de roles</descripcion>
+    <tabla>
+        <table class="table table-striped">
+            <thead tasty-thead=""></thead>
+            <tbody ng-if="loading == false">
+                <tr ng-repeat="row in config.rows">
+                    <td ng-if="hasHeader('codigo')">{{row.codigo}}</td>
+                    <td ng-if="hasHeader('descripcion')">{{row.descripcion}}</td>
+                    <td>
+						<a ng-href="#!{{path}}/{{row.id}}/ver"> <i class="fa fa-eye"></i> Ver </a> &nbsp;
+                        <a ng-href="#!{{path}}/{{row.id}}/editar" data-require="EDITAR_ROLES">
+                            <i class="fa fa-pencil-square-o"></i> Editar 
+                        </a>&nbsp;
+						<a ng-click="eliminar(row)" data-require="ELIMINAR_ROLES"><i class="fa fa-trash"></i> Eliminar </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </tabla>
+</lista-directive>

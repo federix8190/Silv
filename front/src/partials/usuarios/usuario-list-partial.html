@@ -1,0 +1,66 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li class="active">
+            <a>Usuarios <span class="badge">1</span></a>
+        </li>
+        <li>
+            <a href="#!{{path}}/crear" title="Ir a crear CPT">Gestionar Usuario</a>
+        </li>
+        <li>
+            <a> Consultar Usuario</a>
+        </li>
+    </ul>
+</div>
+
+<lista-directive data-require="LISTAR_USUARIOS" data-require-fail="redirect">
+    <filtros>
+        <div class="form-group">
+            <label class="control-label">Nombre:</label>
+            <input type="text" class="form-control" ng-model="filterBy.nombre" 
+            ng-keypress="aplicarFiltros($event)"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Apellido:</label>
+            <input type="text" class="form-control" ng-model="filterBy.apellido" 
+            ng-keypress="aplicarFiltros($event)"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label">N&uacute;mero de cedula:</label>
+            <input type="text" class="form-control" ng-model="filterBy.cedula"
+            ng-keypress="aplicarFiltros($event)" />
+        </div>
+		<div class="form-group">
+            <label class="control-label">Rol:</label>
+            <input type="text" class="form-control" ng-model="filterBy.nombreRol"
+            	ng-keypress="aplicarFiltros($event)" />
+        </div>
+    </filtros>
+    <titulo>Usuarios</titulo>
+    <descripcion>A través de esta sección usted podrá consultar la lista de usuarios.</descripcion>
+    <tabla>
+        <table class="table table-striped">
+            <thead tasty-thead=""></thead>
+            <tbody ng-if="loading == false">
+                <tr ng-repeat="row in config.rows">
+                    <td ng-if="hasHeader('nombre')">{{row.nombre}}</td>
+                    <td ng-if="hasHeader('apellido')">{{row.apellido}}</td>
+                    <td ng-if="hasHeader('cedula')">{{row.cedula | number}}</td>
+					<td ng-if="hasHeader('email')">{{row.email}}</td>
+					<td ng-if="hasHeader('rol')">{{row.rol.descripcion}}</td>
+                    <td>
+						<a ng-href="#!{{path}}/{{row.id}}/ver"> <i class="fa fa-eye"></i> Ver </a> &nbsp;
+                        <br/><a ng-href="#!{{path}}/{{row.id}}/editar" data-require="EDITAR_USUARIOS">
+                            <i class="fa fa-pencil-square-o"></i> Editar 
+                        </a>&nbsp;
+						<br/><a ng-click="cambiarEstado(row)" data-require="ELIMINAR_USUARIOS">
+                            <i ng-class="row.activo ? 'fa fa-times' : 'fa fa-check'">
+                            </i> {{row.activo ? 'Desactivar' : 'Activar'}} 
+                        </a>
+                        <br/><a ng-click="resetearClave(row)"> <i class="fa fa-key"></i> Resetear Clave</a> &nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </tabla>
+</lista-directive>

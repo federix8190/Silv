@@ -1,0 +1,126 @@
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav compress" add-remove-class model="user">
+        <li class="active">
+            <a href="#!/dashboard">
+                <i class="fa fa-fw fa-dashboard"></i> Home</a>
+        </li>
+        <!-- Parametricos -->
+        <li>
+            <a data-toggle="collapse" data-target="#parametricos" title="Datos Parametricos">
+                <i class="fa fa-fw  fa-sliders"></i> Datos Paramétricos
+            </a>
+            <div class="collapse" id="parametricos">
+                <ul class="nav nav-list">
+                    <li ng-repeat="item in menuAdmin">
+                        <a ng-if="tienePermiso($index, 0)" href="{{item.href}}" 
+                            title="{{item.title}}" ng-class="marcarMenu($index, 0)">
+                            <i class="{{item.icon}}"></i>{{item.nombre}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <!-- Explorar Datos -->
+        <li>
+            <a data-toggle="collapse" data-target="#explorar" title="Explorar Datos">
+                <i class="fa fa-fw  fa-search"></i> Explorar Datos
+            </a>
+            <div class="collapse" id="explorar">
+                <ul class="nav nav-list">
+                    <li ng-repeat="item in menuExplorar">
+                        <a ng-if="tienePermiso($index, 1)" href="{{item.href}}" 
+                            title="{{item.title}}" ng-class="marcarMenu($index, 1)">
+                            <i class="{{item.icon}}"></i>{{item.nombre}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <!-- Cargos -->
+        <li>
+            <a data-toggle="collapse" data-target="#cargos" title="Cargos">
+                <i class="fa fa-fw  fa-exchange"></i> Cargos
+            </a>
+            <div class="collapse" id="cargos">
+                <ul class="nav nav-list">
+                    <li ng-repeat="item in menuCargos">
+                        <a ng-if="tienePermiso($index, 2)" href="{{item.href}}" 
+                            title="{{item.title}}" ng-class="marcarMenu($index, 2)">
+                            <i class="{{item.icon}}"></i>{{item.nombre}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <!-- Usuarios -->
+        <li>
+            <a data-toggle="collapse" data-target="#usuarios" title="Usuarios">
+                <i class="fa fa-fw fa-group"></i> Usuarios
+            </a>
+            <div class="collapse" id="usuarios">
+                <ul class="nav nav-list">
+                    <li ng-repeat="item in menuUsuarios">
+                        <a ng-if="tienePermiso($index, 3)" href="{{item.href}}" 
+                            title="{{item.title}}" ng-class="marcarMenu($index, 3)">
+                            <i class="{{item.icon}}"></i>{{item.nombre}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <!-- Reportes -->
+        <li>
+            <a data-toggle="collapse" data-target="#reportes" title="Reportes">
+                <i class="fa fa-fw  fa-area-chart"></i> Reportes
+            </a>
+            <div class="collapse" id="reportes">
+                <ul class="nav nav-list">
+                    <li ng-repeat="item in menuReportes">
+                        <a ng-if="tienePermiso($index, 4)" href="{{item.href}}" 
+                            title="{{item.title}}" ng-class="marcarMenu($index, 4)">
+                            <i class="{{item.icon}}"></i>{{item.nombre}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <!-- Convocatorias -->
+        <li>
+            <a data-toggle="collapse" data-target="#convocatorias" title="Convocatorias">
+                <i class="fa fa-fw  fa-bell"></i> Convocatorias
+            </a>
+            <div class="collapse" id="convocatorias">
+                <ul class="nav nav-list">
+                    <li ng-repeat="item in menuConvocatorias">
+                        <a ng-if="tienePermiso($index, 5)" href="{{item.href}}" 
+                            title="{{item.title}}" ng-class="marcarMenu($index, 5)">
+                            <i class="{{item.icon}}"></i>{{item.nombre}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li role="separator" class="divider"></li>
+
+        <!--Usuario no logeado versión móvil -->
+        <li role="separator" class="hidden-sm hidden-md hidden-lg divider"></li>
+        <li class="hidden-sm hidden-md hidden-lg">
+            <a>
+                <i class="fa fa-fw fa-user"></i> {{user.name}} </a>
+        </li>
+        <li class="hidden-sm hidden-md hidden-lg" ng-if="user == null">
+            <a ng-click="login()">
+                <i class="fa fa-fw fa-user-circle-o"></i> Ingresar </a>
+        </li>
+        <li role="separator" class="hidden-sm hidden-md hidden-lg divider"></li>
+        <li class="hidden-sm hidden-md hidden-lg">
+            <a ng-click="logout()">
+                <i class="fa fa-fw fa-fw fa-power-off"></i> Salir</a>
+        </li>
+        <a class="btn action">
+            <i class="fa fa-angle-double-left"></i>
+        </a>
+        
+    </ul>
+</div>

@@ -1,0 +1,84 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li class="active">
+            <a>CLASIFICACION <span class="badge">1</span></a>
+        </li>
+        <li>
+            <a href="#!{{path}}/crear" title="Ir a crear CLASIFICACION">Gestionar CLASIFICACION</a>
+        </li>
+        <li>
+            <a> Consultar CLASIFICACION</a>
+        </li>
+    </ul>
+</div>
+
+<lista-directive data-require="LISTAR_CPT_EF" data-require-fail="redirect">
+    <filtros>
+        <div class="form-group">
+            <label class="control-label">Nivel General:</label>
+            <input type="text" class="form-control" ng-model="filterBy.nivel" 
+            ng-keypress="aplicarFiltros($event)"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Subnivel General:</label>
+            <input type="text" class="form-control" ng-model="filterBy.subNivel" 
+            ng-keypress="aplicarFiltros($event)"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Número General:</label>
+            <input type="text" class="form-control" ng-model="filterBy.numeroGasto"
+            ng-keypress="aplicarFiltros($event)"/>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Clase General:</label>
+            <input type="text" class="form-control" ng-model="filterBy.denominacionCpt"
+            ng-keypress="aplicarFiltros($event)" />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Código:</label>
+            <input type="text" class="form-control" ng-model="filterBy.codigo"
+            ng-keypress="aplicarFiltros($event)" />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Denominación:</label>
+            <input type="text" class="form-control" ng-model="filterBy.denominacion"
+            ng-keypress="aplicarFiltros($event)" />
+        </div>      
+
+    </filtros>
+    <titulo>Clasificador</titulo>
+    <descripcion>A través de esta sección usted podrá consultar la lista de los Clasificadores.
+    </descripcion>
+    <tabla>
+        <table class="table table-striped">
+            <thead>
+                <tr ng-if="cantidadHeader()" style="background-color:#b4cee5">
+                    <td ng-if="visibleCptGral" colspan="{{colspanCptGral}}">Clase General</td>
+                    <td ng-if="visibleClasificacion" colspan="{{colspanClasificacion}}">Clasificacion</td>
+                    <td colspan="1"></td>
+                </tr>
+                <thead tasty-thead=""></thead>
+            </thead>
+            <tbody ng-if="loading == false">
+                <tr ng-repeat="row in config.rows">
+                    <td ng-if="hasHeader('nivel')">{{row.cpt.nivel}}</td>
+                    <td ng-if="hasHeader('subNivel')">{{row.cpt.subNivel}}</td>
+                    <td ng-if="hasHeader('numeroGasto')">{{row.cpt.numeroGasto}}</td>
+                    <td ng-if="hasHeader('cpt')">{{row.cpt.denominacion}}</td>
+                    <td ng-if="hasHeader('titularUnidad')">{{row.cpt.tituloUnidad|sino}}</td>
+                    <td ng-if="hasHeader('codigo')">{{row.codigo}}</td>
+                    <td ng-if="hasHeader('denominacion')">{{row.denominacion}}</td>    
+                    <td>
+                        <a ng-href="#!{{path}}/{{row.id}}/ver"> <i class="fa fa-eye"></i> Ver </a> &nbsp;
+                        <a ng-href="#!{{path}}/{{row.id}}/editar" data-require="EDITAR_CPT_EF"><i class="fa fa-pencil-square-o"></i> Editar </a>
+						<a ng-click="eliminar(row)" data-require="ELIMINAR_CPT_EF"><i class="fa fa-trash"></i> Eliminar </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </tabla>
+</lista-directive>

@@ -1,0 +1,65 @@
+<br/>
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!{{path}}" title="Ir a Buscar Convocatorias">Convocatorias <span class="badge">1</span></a>
+        </li>
+        <li class="active">
+            <a> Consultar Convocatorias <span class="badge">2</span></a>
+        </li>
+    </ul>
+</div>
+
+<view-directive data-require-fail="redirect">
+    
+	<titulo>Consultar Convocatorias</titulo>
+    <descripcion>A través de esta sección usted podrá consultar los datos de las Convocatorias.</descripcion>
+	
+    <view>
+        
+        <dt>Descripci&oacute;n/Observaciones:</dt>
+        <dd>{{recurso.descripcion}}</dd>
+
+        <dt>Vigencia:</dt>
+        <dd>{{recurso.inicioVigencia | date : 'dd-MM-yyyy'}} al {{recurso.finVigencia | date : 'dd-MM-yyyy'}}</dd>
+        
+        <hr/>
+
+        <dt>Cargo:</dt>
+        <dd>{{recurso.nombre}}</dd>
+
+        <dt>Estructura:</dt>
+        <dd>{{recurso.estructura}}</dd>
+
+        <dt>L&iacute;nea:</dt>
+        <dd>{{recurso.linea}}</dd>
+
+        <dt>Objeto de Gasto:</dt>
+        <dd>{{recurso.objetoGasto}}</dd>
+
+        <dt>Categor&iacute;a:</dt>
+        <dd>{{recurso.categoria}}</dd>
+
+        <dt>Presupuestado:</dt>
+        <dd>{{recurso.presupuestado | number}}</dd>
+
+        <dt>Fuente de Financiamiento:</dt>
+        <dd>{{recurso.fuenteFinanciamiento}}</dd>
+
+        <dt>Coordinaci&oacute;n - Departamento:</dt>
+        <dd>{{recurso.departamento}}</dd>
+
+        <dt>Programa:</dt>
+        <dd>{{recurso.programa}}</dd>
+
+        <dt>Subprograma:</dt>
+        <dd>{{recurso.subprograma}}</dd>
+		
+        <hr/>
+        <button class="btn btn-default" ng-click="meInteresa()">
+            {{recurso.esInteresado ? 'No me interesa' : 'Me interesa'}}
+        </button>
+    </view>
+	
+</view-directive>

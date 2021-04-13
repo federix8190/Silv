@@ -1,0 +1,99 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li class="active">
+            <a>Gestion - Personas
+                <span class="badge">1</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<br/>
+<div class="row">
+    <nav class="col-md-3 ">
+        <div class="form-wrapper">
+            <div class="top-block">
+                <h2 class="title-top ">Filtros</h2>
+                <p>Criterios de búsqueda.</p>
+            </div>
+            <div class="form">
+                <div ng-include="'partials/common/filtros-reportes-partial.html'"></div>
+            </div>
+        </div>
+    </nav>
+    <section class="col-md-9">
+        <section class="form-wrapper">
+            <div class="top-block">
+                <h2 class="title-top">Índice de Variacion de la Dotación de Personal</h2>
+                <p> Distribución de la planta según niveles estimados de ingresos, egresos y nuevos cargos.
+                </p>
+            </div>
+            <table class="matriz-congruencia">
+                <thead>
+                <tr>
+                    <th colspan="2">PERIODO</th>
+                    <th rowspan="2">CARGOS TOTALES</th>
+                    <th colspan="2">EGRESOS</th>
+                    <th colspan="2">INGRESOS</th>
+                    <th colspan="2">NUEVOS CARGOS</th>
+                    <th colspan="2">VARIACION DOTACION</th>
+                </tr>
+                <tr>
+                    <th>Año</th>
+                    <th>Mes</th>
+                    <th>Cant</th>
+                    <th>%</th>
+                    <th>Cant</th>
+                    <th>%</th>
+                    <th>Cant</th>
+                    <th>%</th>
+                    <th>Cant</th>
+                    <th>%</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr ng-if="loading == true">
+                    <td colspan="11">
+                        <div class="loading"><img src="/images/cargando.gif"><br/>
+                            <p>Cargando...</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-if="loading == null">
+                    <td colspan="11">
+                        <no-data></no-data>
+                    </td>
+                </tr>
+                </tfoot>
+                <tbody>
+                <tr ng-repeat="row in puestos">
+                    <td>{{row.anho}}</td>
+                    <td>{{row.mes}}</td>
+                    <td>{{row.totalCargos}}</td>
+                    <td>{{row.egresos}}</td>
+                    <td style="background-color:#b35900; color:white;">{{row.pctEgresos}}</td>
+                    <td>{{row.ingresos}}</td>
+                    <td style="background-color:#384d00; color:white;">{{row.pctIngresos}}</td>
+                    <td>{{row.nuevosCargos}}</td>
+                    <td style="background-color:#b3d9ff">{{row.pctCargos}}</td>
+                    <td>{{row.variacion}}</td>
+                    <td style="background-color:#b3d9ff">{{row.pctVariacion}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <hr ng-show="puestos.length > 0 && loading != true">
+            <div ng-show="loading != true" id="container1"></div>
+            <hr ng-show="puestos.length > 0 && loading != true">
+            <div ng-show="loading != true" id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+            <footer-tabla>
+                <hr/>
+                <h5>Descargar: </h5>
+                <a ng-click="generarReporte()">
+                    <i type="button" class="fa fa-file-excel-o"></i> EXCEL</a>
+            </footer-tabla>
+        </section>
+    </section>
+</div>

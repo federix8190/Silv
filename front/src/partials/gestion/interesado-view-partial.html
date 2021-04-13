@@ -1,0 +1,60 @@
+<br/>
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!{{path}}" title="Ir a Buscar Convocatorias">Convocatorias <span class="badge">1</span></a>
+        </li>
+        <li ng-if="hasRole('CREAR_CONVOCATORIA')">
+            <a href="#!{{path}}/crear" title="Ir a crear Convocatorias">Gestionar Convocatorias</a>
+        </li>
+        <li>
+            <a> Consultar Convocatorias</a>
+        </li>
+        <li>
+            <a href="#!{{pathActual}}" title="Ir a Buscar Interesados"> Interesados <span class="badge">4</span></a>
+        </li>
+        <li class="active">
+            <a> Consultar Interesado <span class="badge">5</span></a>
+        </li>
+    </ul>
+</div>
+
+<view-directive data-require= "LISTAR_LEGAJO" data-require-fail="redirect">
+    <titulo>Legajo Personal</titulo>
+    <descripcion>A través de esta sección usted podrá consultar los datos del legajo personal del funcionario.</descripcion>
+    <view>
+        <dt>Apellidos:</dt>
+        <dd>
+            {{recurso.apellido}}
+        </dd>
+        <dt>Nombre:</dt>
+        <dd>
+            {{recurso.nombre}}
+        </dd>
+        <dt>C&eacute;dula de identidad:</dt>
+        <dd>
+            {{recurso.cedulaIdentidad | number}}
+        </dd>
+        <dt>Vinculaci&oacute;n Laboral:</dt>
+        <dd>
+            {{recurso.vinculacionFuncionario}}
+        </dd>
+        <dt>Cargo:</dt>
+        <dd>
+            {{recurso.idCargo.descripcion}}
+        </dd>
+        <dt>Funcion real:</dt>
+        <dd>
+            {{recurso.funcionReal}}
+        </dd>
+        <dt>Fecha de nacimiento:</dt>
+        <dd>
+            {{recurso.fechaNacimiento}}
+        </dd>
+        <dt>Sexo:</dt>
+        <dd>
+            {{recurso.sexo == 'M' ? 'MASCULINO':'FEMENINO'}}
+        </dd>
+    </view>
+</view-directive>

@@ -1,0 +1,40 @@
+<!--<form-directive>
+    <titulo>Recuperar contraseña</titulo>
+    <descripcion>
+    A través de esta sección tiene la opción de recupear su contraseña. 
+    Ingrese su Número de cedula y en breve se le enviar&aacute; una nueva contraseña a su correo electrónico.
+    </descripcion>
+    <form>-->
+
+    <view-directive>
+    <titulo>Recuperar contraseña</titulo>
+    <descripcion>
+    A través de esta sección tiene la opción de recupear su contraseña. 
+    Ingrese su Número de cedula y en breve se le enviar&aacute; una nueva contraseña a su correo electrónico.
+    </descripcion>
+    <view>
+
+        <div class="form-group">
+            <label for="cedula" class="col-sm-3 control-label">Cedula:*</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="cedula" class="form-control" id="cedula">
+                <p class="help-block">Número de documento.</p>
+            </div>
+        </div>
+        <!--<div class="form-group">
+            <label for="email" class="col-sm-3 control-label">Email:*</label>
+            <div class="col-sm-7">
+                <input type="mail" ng-model="recurso.email" class="form-control" id="email">
+                <p class="help-block">Dirección de correo electrónico.</p>
+            </div>
+        </div>-->
+            
+            <button class="btn btn-default" ng-click="enviar(cedula)" ng-disabled="disabledButtonSave">
+                <i class="fa fa-key"></i>
+                &nbsp;{{!disabledButtonSave ? 'Enviar' : 'En Proceso...'}}
+            </button>
+
+ </view>
+</view-directive>
+    <!--</form>
+</form-directive>-->

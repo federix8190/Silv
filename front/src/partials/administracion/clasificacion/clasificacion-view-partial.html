@@ -1,0 +1,31 @@
+<br/>
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!{{path}}" title="Ir a Buscar CLASIFICACION ">CLASIFICACION <span class="badge">1</span></a>
+        </li>
+        <li>
+            <a href="#!{{path}}/{{recurso.id}}/editar" title="Ir a modificar CLASIFICACION ">Gestionar CLASIFICACION <span
+                    class="badge">2</span></a>
+        </li>
+        <li class="active">
+            <a> Consultar CLASIFICACION <span class="badge">3</span></a>
+        </li>
+    </ul>
+</div>
+
+<view-directive data-require="LISTAR_CPT_EF" data-require-fail="redirect">
+    <titulo>Consultar Clasificador</titulo>
+    <descripcion>A través de esta sección usted podrá consultar los datos de los Clasificadores
+        específico funcional.
+    </descripcion>
+    <view>
+        <dt>Denominación :</dt>
+        <dd>{{recurso.denominacion}}</dd>
+        <dt>Código :</dt>
+        <dd>{{recurso.codigo}}</dd>
+        <dt>Clase General :</dt>
+        <dd>{{recurso.cpt.denominacion}}</dd>
+    </view>
+</view-directive>

@@ -1,0 +1,131 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li class="active">
+            <a>Anexos Comparativo</a>
+        </li>
+    </ul>
+</div>
+
+<!--<form>
+    <titulo>Filtros</titulo>
+    <descripcion>A través de esta sección usted podrá generar reportes comparativos para 2 periodos.
+    </descripcion>-->
+    
+    <form>
+        
+        <div class="form-group">
+            <label for="anhoInicio" class="col-sm-3 control-label">Año Inicial :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="anhoInicio" class="form-control" id="anhoInicio" required>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        
+        
+        <!--<div class="form-group" style="width:100px;display: block;">
+            <label class="control-label">Mes Inicial :</label>
+            <select class="form-control" ng-model="mesInicio">
+                <option value="1">Enero</option>
+                <option value="2">Febrero</option>
+                <option value="3">Marzo</option>
+                <option value="4">Abril</option>
+                <option value="5">Mayo</option>
+                <option value="6">Junio</option>
+                <option value="7">Julio</option>
+                <option value="8">Agosto</option>
+                <option value="9">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+            </select>
+        </div>-->
+        
+        <div class="form-group">
+            <label for="mesInicio" class="col-sm-3 control-label">Mes Inicial :</label>
+            <div class="col-sm-7">
+                <!--<input type="text" ng-model="mesInicio" class="form-control" id="mesInicio" required>
+                <p class="help-block">Mes Inicial.</p>-->
+                <select class="form-control" ng-model="mesInicio">
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="anhoFinal" class="col-sm-3 control-label" style="margin-top: 32px;">Año Final :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="anhoFinal" class="form-control" id="anhoFinal" 
+                        style="margin-top: 32px;" required>
+                <p class="help-block"></p>
+            </div>
+        </div>
+
+        <!--<div class="form-group">
+            <label class="control-label">Mes Final :</label>
+            <select class="form-control" ng-model="mesFinal">
+                <option value="1">Enero</option>
+                <option value="2">Febrero</option>
+                <option value="3">Marzo</option>
+                <option value="4">Abril</option>
+                <option value="5">Mayo</option>
+                <option value="6">Junio</option>
+                <option value="7">Julio</option>
+                <option value="8">Agosto</option>
+                <option value="9">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+            </select>
+        </div>-->
+        <div class="form-group">
+            <label for="mesFinal" class="col-sm-3 control-label" >
+                Mes Final :
+            </label>
+            <div class="col-sm-7">
+                <!--<input type="text" ng-model="mesFinal" class="form-control" 
+                    id="mesFinal" required>
+                <p class="help-block">Mes Final.</p>-->
+                <select class="form-control" ng-model="mesFinal">
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group" >
+            <div class="col-sm-7">
+                <button type="button" class="btn btn-primary" 
+                style="margin-top: 64px;" ng-disabled="idProceso != null" 
+                    ng-click="generarReporte()">
+                <i class="fa fa-floppy-o">
+                    
+                </i>&nbsp;{{idProceso == null ? 'Generar Reporte' : 'Generando reporte...'}}
+            </button>
+            </div>
+        </div>
+
+    </form>
+
+<!--</form-directive>-->

@@ -1,0 +1,93 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li class="active">
+            <a>CPT <span class="badge">1</span></a>
+        </li>
+        <li>
+            <a href="#!{{path}}/crear" title="Ir a crear CPT">Gestionar CPT</a>
+        </li>
+        <li>
+            <a> Consultar CPT</a>
+        </li>
+    </ul>
+</div>
+
+<lista-directive data-require="LISTAR_CPT" data-require-fail="redirect">
+    <filtros>
+        <div class="form-group">
+            <label class="control-label">Nivel:</label>
+            <input type="number" onkeypress="return event.charCode >= 48" min="0" class="form-control" ng-model="filterBy.nivel"
+            ng-keypress="aplicarFiltros($event)" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Subnivel:</label>
+            <input type="number" onkeypress="return event.charCode >= 48" min="0" class="form-control" ng-model="filterBy.subNivel" 
+            ng-keypress="aplicarFiltros($event)"/>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Número:</label>
+            <input type="number" onkeypress="return event.charCode >= 48" min="0" class="form-control" ng-model="filterBy.numeroGasto"
+            ng-keypress="aplicarFiltros($event)" />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Denominaci&oacute;n del Puesto:</label>
+            <input type="text" class="form-control" ng-model="filterBy.denominacion"
+            ng-keypress="aplicarFiltros($event)" />
+        </div>
+
+        <label class="control-label">Titular Unidad:</label>
+        <select class="form-control" ng-model="filterBy.tituloUnidad">
+            <option style="display:none" value=""></option>
+            <option value="TODOS">TODOS</option>
+            <option value="true">Sí</option>
+            <option value="false">No</option>
+        </select>
+        <br/><br/>
+        <input ng-click="seleccionarTodos()" style="float: left;" 
+            type="checkbox"><span style="padding-left: 8px">Solo Activos</span>
+
+    </filtros>
+    <titulo>Clasificador de puesto de trabajo (CPT)</titulo>
+    <descripcion>A través de esta sección usted podrá consultar la lista de los Clasificadores de puesto de trabajo.</descripcion>
+    <tabla>
+        <table class="table table-striped">
+            <thead tasty-thead=""></thead>
+            <tbody ng-if="loading == false">
+                <tr ng-repeat="row in config.rows">
+                    <td ng-if="hasHeader('nivel')">{{row.nivel}}</td>
+                    <td ng-if="hasHeader('subNivel')">{{row.subNivel}}</td>
+                    <td ng-if="hasHeader('numeroGasto')">{{row.numeroGasto}}</td>
+                    <td ng-if="hasHeader('denominacion')" style="width:250px;">{{row.denominacion}}</td>
+                    <td ng-if="hasHeader('tituloUnidad')">{{row.tituloUnidad|sino}}</td>
+                    <td>
+						<a ng-href="#!{{path}}/{{row.id}}/ver"> <i class="fa fa-eye"></i> Ver </a>
+                        <a ng-href="#!{{path}}/{{row.id}}/editar" data-require="EDITAR_CPT">
+                            <i class="fa fa-pencil-square-o"></i> Editar 
+                        </a>
+						<a ng-href="#!/administracion/cpt" class="remove-row" 
+                            ng-click="eliminar(row)" data-require="ELIMINAR_CPT">
+                            <i class="fa fa-trash"></i> Eliminar 
+                        </a>
+                        <a ng-href="#!/administracion/cpt" class="remove-row" 
+                            ng-click="cambiarEstado(row)" data-require="ELIMINAR_CPT">
+                            <i ng-class="row.activo ? 'fa fa-times' : 'fa fa-check'">
+                            </i> {{row.activo ? 'Desactivar' : 'Activar'}} 
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </tabla>
+    <footer-tabla>
+        <hr/>
+        <h5>Descargar: </h5>
+        <a ng-click="getCSV()"><i type="button" class="fa fa-file-o"></i> CSV</a> &nbsp;|&nbsp;
+        <a ng-click="getXLS()"><i type="button" class="fa fa-file-excel-o"></i> EXCEL</a>
+        <hr/><a class="btn btn-default" href="#!{{path}}/crear"><i class="fa fa-plus"></i> Agregar</a>
+        <!--<a ng-click="getPDF()">
+            <i type="button" class="fa fa-file-pdf-o"></i> PDF</a>-->
+    </footer-tabla>
+</lista-directive>

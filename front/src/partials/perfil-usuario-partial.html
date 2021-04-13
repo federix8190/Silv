@@ -1,0 +1,43 @@
+<view-directive>
+    <titulo>Perfil del usuario</titulo>
+    <descripcion>A través de esta sección podrá ver los datos de su Perfil</descripcion>
+    <view>
+        <dt>Nombre y Apellidos:</dt>
+        <dd>
+            {{recurso.nombre}} {{recurso.apellido}}
+        </dd>
+        <dt>Número de Cedula:</dt>
+        <dd>
+            {{recurso.cedula}}
+        </dd>
+        <dt>Dirección de correo electrónico:</dt>
+        <dd>
+            {{recurso.email}}
+        </dd>			
+        
+        <dt>Curriculum Vitae:</dt>
+		<dd>
+            <button id="cv" class="btn btn-default" type="file" accept="*/*" 
+                    ngf-select="uploadFiles($file, $invalidFiles)">
+                <i class="fa fa-upload"></i> Cargar Archivo
+            </button>
+        </dd>
+        <dt></dt>
+        <dd>
+            <span>{{fileName}} {{size}}</span>
+            <i ng-if=archivoCargado class="fa fa-check"></i>
+        </dd>
+
+		<hr>
+        <a class="btn btn-default" ng-click="guardar()">
+            <i class="fa fa-send"></i>&nbsp;Enviar CV
+        </a>&nbsp;&nbsp;&nbsp;
+        <a id="cv" class="btn btn-default" href="{{urlDescarga}}" target="_blank">
+            <i class="fa fa-download"></i> Descargar template
+        </a>&nbsp;&nbsp;&nbsp;
+        <a ng-if="mostrarCambioPassword" class="btn btn-default" ng-click="cambiarPassword()">
+            <i class="fa fa-key"></i>&nbsp;Cambiar Contrase&ntilde;a
+        </a>
+
+    </view>
+</view-directive>

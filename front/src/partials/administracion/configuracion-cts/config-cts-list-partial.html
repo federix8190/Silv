@@ -1,0 +1,62 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li class="active">
+            <a>Pesos de Tramos <span class="badge">1</span></a>
+        </li>
+
+        <li>
+            <a href="#!{{path}}/crear"> Gestionar Pesos de Tramos</a>
+        </li>
+
+        <li>
+            <a> Consultar Pesos de Tramos</a>
+        </li>
+    </ul>
+</div>
+
+<lista-directive data-require="CONFIGURAR_CTS" data-require-fail="redirect">
+    <filtros>
+        <div class="form-group">
+            <label class="control-label">N&uacute;mero Tramo:</label>
+            <input type="text" class="form-control" ng-model="filterBy.numeroTramo"
+            ng-keypress="aplicarFiltros($event)" />
+        </div>
+    </filtros>
+    <titulo>Configuración de los pesos de los tramos salariales (CTS)</titulo>
+    <descripcion>
+        A través de esta sección usted podrá consultar la lista de las Configuraciones de los 
+        pesos que se utilizan para el c&aacute;lculo de los Clasificadores de los 
+        tramos salariales.
+    </descripcion>
+    <tabla>
+        <table class="table table-striped">
+            <thead tasty-thead=""></thead>
+            <tbody ng-if="loading == false">
+                <tr ng-repeat="row in config.rows">
+                    <td ng-if="hasHeader('numeroTramo')">{{row.numeroTramo}}</td>
+                    <td ng-if="hasHeader('peso')">{{row.peso | number}}</td>
+                    <td ng-if="hasHeader('minimo')">{{row.cts.minimo | number}}</td>
+                    <td ng-if="hasHeader('maximo')">{{row.cts.maximo | number}}</td>
+                    <td>
+                        <a ng-href="#!{{path}}/{{row.numeroTramo}}/ver">
+                            <i class="fa fa-eye"></i> Ver
+                        </a>
+                        <a ng-href="#!{{path}}/{{row.numeroTramo}}/editar">
+                            <i class="fa fa-pencil-square-o"></i> Editar 
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </tabla>
+    <footer-tabla>
+        <hr/>
+        <h5>Descargar: </h5>
+        <a ng-click="getCSV()"><i type="button" class="fa fa-file-o"></i> CSV</a> &nbsp;|&nbsp;
+        <a ng-click="getXLS()"><i type="button" class="fa fa-file-excel-o"></i> EXCEL</a>
+        <hr/><a class="btn btn-default" href="#!{{path}}/crear"><i class="fa fa-plus"></i> Agregar</a>
+        <!--<a ng-click="getPDF()">
+            <i type="button" class="fa fa-file-pdf-o"></i> PDF</a>-->
+    </footer-tabla>
+</lista-directive>

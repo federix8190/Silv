@@ -1,0 +1,843 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li class="active">
+            <a>Anexo No Distribuido
+                <span class="badge">1</span>
+            </a>
+        </li>
+        <li>
+            <a> Consultar Anexo No Distribuido</a>
+        </li>
+    </ul>
+</div>
+
+<lista-directive data-require="LISTAR_ANEXOS" data-require-fail="redirect">
+
+    <filtros>
+        <a class="btn btn-collapse ng-scope" data-toggle="collapse" data-target="#personales" title="Datos Personales">
+            <i class="fa fa-angle-down"></i> Datos Personales
+        </a>
+        <div class="collapse" id="personales">
+            <div class="divisor"></div>
+            <div class="form-group">
+                <label class="control-label">C&eacute;dula de Identidad :</label>
+                <input type="text" class="form-control" ng-model="filterBy.cedulaIdentidad" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Apellido :</label>
+                <input type="text" class="form-control" ng-model="filterBy.apellido" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Nombre :</label>
+                <input type="text" class="form-control" ng-model="filterBy.nombre" ng-keypress="aplicarFiltros($event)" />
+            </div>
+        </div>
+
+        <div class="divisor"></div>
+
+        <a class="btn btn-collapse ng-scope" data-toggle="collapse" data-target="#generales" title="Datos Generales">
+            <i class="fa fa-angle-down"></i> Datos Generales
+        </a>
+        <div class="collapse" id="generales">
+            <div class="divisor"></div>
+
+            <div class="form-group">
+                <label class="control-label">Profesión SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.profesionSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Profesión SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.profesion" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Nivel Educativo SF :</label>
+                <select class="form-control" ng-model="filterBy.nivelEducativoSF">
+                    <option value="0">Universitario</option>
+                    <option value="1">Secundario</option>
+                    <option value="2">Primario Completo</option>
+                    <option value="3">Primario Incompleto</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Nivel Educativo SI :</label>
+                <select class="form-control" ng-model="filterBy.nivelEducativo">
+                    <option value="0">Universitario</option>
+                    <option value="1">Secundario</option>
+                    <option value="2">Primario Completo</option>
+                    <option value="3">Primario Incompleto</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Orientación SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.orientacionSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Orientación SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.orientacion" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">A&ntilde;o SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.anhoSF" 
+                        ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">A&ntilde;o SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.anho" 
+                        ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Mes SF :</label>
+                <select class="form-control" ng-model="filterBy.mesSF">
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Mes SI :</label>
+                <select class="form-control" ng-model="filterBy.mes">
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+            </div>   
+        </div>
+
+        <div class="divisor"></div>
+
+        <a class="btn btn-collapse ng-scope" data-toggle="collapse" data-target="#presupuestarios-salariales" title="Datos Presupuestarios y Salariales">
+            <i class="fa fa-angle-down"></i> Presupuestarios y Salariales
+        </a>
+        <div class="collapse" id="presupuestarios-salariales">
+            <div class="divisor"></div>
+
+            <div class="form-group">
+                <label class="control-label">Nivel Entidad SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.nivelEntidadSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Nivel Entidad SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.nivelEntidad" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Entidad SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.entidadSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Entidad SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.entidad" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">OEE SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.oeeSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">OEE SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.oee" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div ng-if="esHacienda" class="form-group">
+                <label class="control-label">L&iacute;nea SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.lineaSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div ng-if="esHacienda" class="form-group">
+                <label class="control-label">L&iacute;nea SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.linea" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Fuente de Financiamiento SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.fuenteFinanciamientoSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Fuente de Financiamiento SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.fuenteFinanciamiento" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Objeto Gasto SF :</label>
+                <select class="form-control" ng-model="filterBy.objetoGastoSF" multiple>
+                    <option value="111">111</option>
+                    <option value="113">113</option>
+                    <option value="123">123</option>
+                    <option value="125">125</option>
+                    <option value="131">131</option>
+                    <option value="133">133</option>
+                    <option value="137">137</option>
+                    <option value="141">141</option>
+                    <option value="144">144</option>
+                    <option value="145">145</option>
+                    <option value="199">199</option>
+                    <option value="849">849</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Objeto Gasto SI :</label>
+                <select class="form-control" ng-model="filterBy.objetoGasto" multiple>
+                    <option value="111">111</option>
+                    <option value="113">113</option>
+                    <option value="123">123</option>
+                    <option value="125">125</option>
+                    <option value="131">131</option>
+                    <option value="133">133</option>
+                    <option value="137">137</option>
+                    <option value="141">141</option>
+                    <option value="144">144</option>
+                    <option value="145">145</option>
+                    <option value="199">199</option>
+                    <option value="849">849</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="divisor"></div>
+
+        <a class="btn btn-collapse ng-scope" data-toggle="collapse" data-target="#presupuestarios-estructura" title="Datos Estructura">
+            <i class="fa fa-angle-down"></i> Presupuestarios Estructura
+        </a>
+        <div class="collapse" id="presupuestarios-estructura">
+            <div class="divisor"></div>
+            <div class="form-group">
+                <label class="control-label">Programa SF :</label>
+                <select id="programa" type="text" class="form-control" 
+                    data-ng-options="programa for programa in listaProgramas track by programa" 
+                    ng-model="filterBy.programaSF">
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Programa SI :</label>
+                <select id="programa" type="text" class="form-control" 
+                    data-ng-options="programa for programa in listaProgramas track by programa" 
+                    ng-model="filterBy.programa">
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Subprograma SF :</label>
+                <select id="subprograma" type="text" class="form-control" 
+                    data-ng-options="subprograma for subprograma in listaSubProgramas track by subprograma"
+                    ng-model="filterBy.subprogramaSF">
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Subprograma SI :</label>
+                <select id="subprograma" type="text" class="form-control" 
+                    data-ng-options="subprograma for subprograma in listaSubProgramas track by subprograma"
+                    ng-model="filterBy.subprograma">
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Dependencia SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.dependenciaSF" 
+                    ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Dependencia SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.dependencia" 
+                    ng-keypress="aplicarFiltros($event)" />
+            </div>
+        </div>
+
+        <div class="divisor"></div>
+
+        <a class="btn btn-collapse ng-scope" data-toggle="collapse" 
+            data-target="#presupuestarios" title="Datos Presupuestarios">
+            <i class="fa fa-angle-down"></i> Datos Cargos Presupuestarios
+        </a>
+        <div class="collapse" id="presupuestarios">
+            <div class="divisor"></div>
+            <div class="form-group">
+                <label class="control-label">Categor&iacute;a SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.categoriaSF" 
+                        ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Categor&iacute;a SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.categoria" 
+                        ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Concepto SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.conceptoSF" 
+                        ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Concepto SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.concepto" 
+                        ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Presupuestado SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.presupuestadoSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Presupuestado SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.presupuestado" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Devengado SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.devengadoSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Devengado SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.devengado" ng-keypress="aplicarFiltros($event)" />
+            </div>
+        </div>
+
+        <div class="divisor"></div>
+
+        <a class="btn btn-collapse ng-scope" data-toggle="collapse" data-target="#cargo" title="Estado Cargo">
+            <i class="fa fa-angle-down"></i> Estado del Cargo
+        </a>
+        <div class="collapse" id="cargo">
+            <div class="divisor"></div>
+            <div class="form-group">
+                <label class="vinculacion">Régimen SF :</label>
+                <select name="vinculacion" type="text" class="form-control" 
+                    ng-options="vinculacion for vinculacion in listaVinculaciones track by vinculacion"
+                    ng-model="filterBy.regimenSF" ng-change="updateVinculacionSF(vinculacion)"></select>
+            </div>
+
+            <div class="form-group">
+                <label class="vinculacion">Régimen SI :</label>
+                <select name="vinculacion" type="text" class="form-control" 
+                    ng-options="vinculacion for vinculacion in listaVinculaciones track by vinculacion"
+                    ng-model="filterBy.regimen" ng-change="updateVinculacion(vinculacion)"></select>
+            </div>
+        </div>
+
+        <div class="divisor"></div>
+
+        <a class="btn btn-collapse ng-scope" data-toggle="collapse" data-target="#ocupacionales" title="Datos Ocupacionales">
+            <i class="fa fa-angle-down"></i>  Datos Ocupacionales
+        </a>
+        <div class="collapse" id="ocupacionales">
+            <div class="divisor"></div>
+            <div class="form-group">
+                <label class="control-label">Cargo SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.cargoSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Cargo SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.cargo" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Funci&oacute;n Real SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.funcionRealSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Funci&oacute;n Real SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.funcionReal" ng-keypress="aplicarFiltros($event)" />
+            </div>
+        
+            <div class="form-group">
+                <label class="control-label">N&uacute;mero de Puesto de Trabajo SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.numeroPuestoTrabajo" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">N&uacute;mero de Puesto de Trabajo SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.numeroPuestoTrabajo" ng-keypress="aplicarFiltros($event)" />
+            </div>
+        </div>
+
+        <div class="divisor"></div>
+
+        <a class="btn btn-collapse ng-scope" data-toggle="collapse" data-target="#estructura" title="Datos Estructura">
+            <i class="fa fa-angle-down"></i> Datos Estructura
+        </a>
+        <div class="collapse" id="estructura">
+            <div class="divisor"></div>
+            <div class="form-group">
+                <label class="control-label">C&oacute;digo CEO SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.codigoCeoSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">C&oacute;digo CEO SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.codigoCeo" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Denominaci&oacute;n CEO SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.denominacionCeoSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Denominaci&oacute;n CEO SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.denominacionCeo" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Nivel CUO SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.nivelCuoSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Nivel CUO SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.nivelCuo" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Sub Nivel CUO SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.subNivelCuoSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Sub Nivel CUO SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.subNivelCuo" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">N&uacute;mero CUO SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.numeroCuoSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">N&uacute;mero CUO SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.numeroCuo" ng-keypress="aplicarFiltros($event)" />
+            </div>
+        </div>
+
+        <div class="divisor"></div>
+
+        <a class="btn btn-collapse ng-scope" data-toggle="collapse" data-target="#general" title="CPT General">
+            <i class="fa fa-angle-down"></i> CPT General
+        </a>
+        <div class="collapse" id="general">
+            <div class="divisor"></div>
+            <div class="form-group">
+                <label class="control-label">Nivel:</label>
+                <input type="text" class="form-control" ng-model="filterBy.nivelCpt" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Nivel:</label>
+                <input type="text" class="form-control" ng-model="filterBy.nivelCpt" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Sub Nivel SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.subNivelCptSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Sub Nivel SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.subNivelCpt" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">N&uacute;mero SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.numeroCptSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">N&uacute;mero SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.numeroCpt" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Denominaci&oacute;n SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.denominacionCptSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Denominaci&oacute;n SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.denominacionCpt" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <label class="control-label">Titular Unidad SF :</label>
+            <select class="form-control" ng-model="filterBy.titularUnidadSF">
+                <option style="display:none" value=""></option>
+                <option value="TODOS">TODOS</option>
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+            </select>
+
+            <label class="control-label">Titular Unidad SI :</label>
+            <select class="form-control" ng-model="filterBy.titularUnidad">
+                <option style="display:none" value=""></option>
+                <option value="TODOS">TODOS</option>
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+            </select>
+        </div>
+
+        <div ng-if="!esHacienda" class="divisor"></div>
+
+        <a ng-if="!esHacienda" class="btn btn-collapse ng-scope" data-toggle="collapse" 
+                data-target="#cptee" title="CPT EE">
+            <i class="fa fa-angle-down"></i> CPT Específico Escalafonario
+        </a>
+        <div ng-if="!esHacienda" class="collapse" id="cptee">
+            <div class="divisor"></div>
+            <div class="form-group">
+                <label class="control-label">N&uacute;mero Secuencial:</label>
+                <input type="text" class="form-control" ng-model="filterBy.numeroSecuencialCptE" 
+                        ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="ambitoCptE">Ámbito:</label>
+                <select id="ambitoCptE" name="ambitoCptE" type="text" class="form-control" 
+                    ng-options="ambito for ambito in listaAmbitos track by ambito"
+                    ng-model="filterBy.ambitoCptE"
+                    ng-init='filterBy.ambitoCptE="TODOS"'></select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Nivel:</label>
+                <input type="text" class="form-control" ng-model="filterBy.nivelCptE" 
+                        ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Categor&iacute;a:</label>
+                <input type="text" class="form-control" ng-model="filterBy.categoriaCptE" 
+                        ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Denominaci&oacute;n:</label>
+                <input type="text" class="form-control" ng-model="filterBy.denominacionCptE" 
+                        ng-keypress="aplicarFiltros($event)" />
+            </div>
+        </div>
+
+        <div class="divisor"></div>
+
+        <a class="btn btn-collapse ng-scope" data-toggle="collapse" 
+            data-target="#cptef" title="CPT EF">
+            <i class="fa fa-angle-down"></i> CPT Específico Funcional
+        </a>
+        <div class="collapse" id="cptef">
+            <div class="divisor"></div>
+            <div class="form-group">
+                <label class="control-label">N&uacute;mero Secuencial SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.numeroSecuencialCptFSF" 
+                        ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">N&uacute;mero Secuencial SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.numeroSecuencialCptF" 
+                        ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div ng-if="!esHacienda" class="form-group">
+                <label class="ambitoCptF">Ámbito SF :</label>
+                <select id="ambitoCptF" name="ambitoCptF" type="text" class="form-control" 
+                    ng-options="ambito for ambito in listaAmbitos track by ambito"
+                    ng-model="filterBy.ambitoCptFSF"
+                    ng-init='filterBy.ambitoCptF="TODOS"'></select>
+            </div>
+
+            <div ng-if="!esHacienda" class="form-group">
+                <label class="ambitoCptF">Ámbito SI :</label>
+                <select id="ambitoCptF" name="ambitoCptF" type="text" class="form-control" 
+                    ng-options="ambito for ambito in listaAmbitos track by ambito"
+                    ng-model="filterBy.ambitoCptF"
+                    ng-init='filterBy.ambitoCptF="TODOS"'></select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">C&oacute;digo Mecip SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.codigoProcesoSF" 
+                        ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">C&oacute;digo Mecip SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.codigoProceso" 
+                        ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Denominaci&oacute;n SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.denominacionCptFSF" 
+                        ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Denominaci&oacute;n SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.denominacionCptF" 
+                        ng-keypress="aplicarFiltros($event)" />
+            </div>
+            
+            <div class="form-group">
+                <label class="orientacionFuncional">Orientaci&oacute;n Funcional SF :</label>
+                <select name="orientacionFuncional" type="text" class="form-control" 
+                    ng-options="orientacionFuncional for orientacionFuncional in listaOrientacionFunc track by orientacionFuncional"
+                    ng-model="filterBy.orientacionFuncionalSF"
+                    ng-init='filterBy.orientacionFuncional="TODOS"'></select>
+            </div>
+
+            <div class="form-group">
+                <label class="orientacionFuncional">Orientaci&oacute;n Funcional SI :</label>
+                <select name="orientacionFuncional" type="text" class="form-control" 
+                    ng-options="orientacionFuncional for orientacionFuncional in listaOrientacionFunc track by orientacionFuncional"
+                    ng-model="filterBy.orientacionFuncional"
+                    ng-init='filterBy.orientacionFuncional="TODOS"'></select>
+            </div>
+        </div>
+
+        <div class="divisor"></div>
+
+        <a class="btn btn-collapse ng-scope" data-toggle="collapse" data-target="#tramos-salariales" title="Tramos Salariales">
+            <i class="fa fa-angle-down"></i> Clasificador Tramos Salariales
+        </a>
+        <div class="collapse" id="tramos-salariales">
+            <div class="divisor"></div>
+            <div class="form-group">
+                <label class="control-label">Tramo SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.tramoSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Tramo SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.tramo" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">M&iacute;nimo SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.minimoSF" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">M&iacute;nimo SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.minimo" ng-keypress="aplicarFiltros($event)" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">M&aacute;ximo SF :</label>
+                <input type="text" class="form-control" ng-model="filterBy.maximoSF" ng-keypress="aplicarFiltros($event)" />
+            </div>        
+
+            <div class="form-group">
+                <label class="control-label">M&aacute;ximo SI :</label>
+                <input type="text" class="form-control" ng-model="filterBy.maximo" ng-keypress="aplicarFiltros($event)" />
+            </div> 
+        </div>
+        <!--<div class="form-group">
+            <label class="control-label">Concepto:</label>
+            <input type="text" class="form-control" ng-model="filterBy.concepto" ng-keypress="aplicarFiltros($event)" />
+        </div>-->
+        
+    </filtros>
+
+    <titulo>Anexo No Distribuido de Personal</titulo>
+    <descripcion>A través de esta sección usted podrá realizar consultas al anexo presupuestario.
+    </descripcion>
+    <tabla>
+        <table class="table table-striped">
+            <thead>
+                <tr ng-if="cantidadHeader()">
+                    <td ng-if="visiblePersonales" style="background-color:rgb(210, 228, 152)" 
+                        colspan="{{colspanPersonales}}">Datos Personales</td>
+                    <td ng-if="visibleGralesSF" style="background-color:#C8C8C8" 
+                        colspan="{{colspanGralesSF}}">Datos Generales SF</td>
+                    <td ng-if="visiblePresupuestariosEstructuraSF" style="background-color:#C8C8C8" 
+                        colspan="{{colspanPresupuestariosEstructuraSF}}">Datos Presupuestarios de Estructura SF</td>
+                    <td ng-if="visibleCargosPresupuestariosSF" style="background-color:#d1cb73" 
+                        colspan="{{colspanCargosPresupuestariosSF}}">Datos de Cargos Presupuestarios SF</td>
+                    <td ng-if="visibleEstadoCargoSF" style="background-color:#d1cb73" 
+                        colspan="{{colspanEstadoCargoSF}}">Estado del Cargo SF</td>
+                    <td ng-if="visibleOcupacionalesSF" style="background-color:rgb(210, 228, 152)" 
+                        colspan="{{colspanOcupacionalesSF}}">Datos Ocupacionales SF</td>
+                    <td ng-if="visibleEstructuraSF" style="background-color:rgb(158, 212, 221)" 
+                        colspan="{{colspanEstructuraSF}}">Datos Estructura SF</td>
+                    <td ng-if="visibleCptGralSF" style="background-color:rgb(243, 149, 112)" 
+                        colspan="{{colspanCptGralSF}}">CPT General SF</td>
+                    <td ng-if="visibleCptEESF" style="background-color:rgb(250, 204, 204)" 
+                        colspan="{{colspanCptEESF}}">CPT - ESPECIFICO ESCALAFONARIO SF</td>
+                    <td ng-if="visibleCptEfSF" style="background-color:rgb(235, 97, 43)" 
+                        colspan="{{colspanCptEfSF}}">CPT - ESPECIFICO FUNCIONAL SF</td>
+                    <td ng-if="visibleTramosSalarialesSF" style="background-color:rgb(148, 168, 240)" 
+                        colspan="{{colspanTramosSalarialesSF}}">CLASIFICADOR DE TRAMOS SALARIALES SF</td>
+                    <td ng-if="visibleGrales" style="background-color:#C8C8C8" 
+                        colspan="{{colspanGrales}}">Datos Generales SI</td>
+                    <td ng-if="visiblePresupuestariosEstructura" style="background-color:#C8C8C8" 
+                        colspan="{{colspanPresupuestariosEstructura}}">Datos Presupuestarios de Estructura SI</td>
+                    <td ng-if="visibleCargosPresupuestarios" style="background-color:#d1cb73" 
+                        colspan="{{colspanCargosPresupuestarios}}">Datos de Cargos Presupuestarios SI</td>
+                    <td ng-if="visibleEstadoCargo" style="background-color:#d1cb73" 
+                        colspan="{{colspanEstadoCargo}}">Estado del Cargo SI</td>
+                    <td ng-if="visibleOcupacionales" style="background-color:rgb(210, 228, 152)" 
+                        colspan="{{colspanOcupacionales}}">Datos Ocupacionales SI</td>
+                    <td ng-if="visibleEstructura" style="background-color:rgb(158, 212, 221)" 
+                        colspan="{{colspanEstructura}}">Datos Estructura SI</td>
+                    <td ng-if="visibleCptGral" style="background-color:rgb(243, 149, 112)" 
+                        colspan="{{colspanCptGral}}">CPT General SI</td>
+                    <td ng-if="visibleCptEE" style="background-color:rgb(250, 204, 204)" 
+                        colspan="{{colspanCptEE}}">CPT - ESPECIFICO ESCALAFONARIO SI</td>
+                    <td ng-if="visibleCptEf" style="background-color:rgb(235, 97, 43)" 
+                        colspan="{{colspanCptEf}}">CPT - ESPECIFICO FUNCIONAL SI</td>
+                    <td ng-if="visibleTramosSalariales" style="background-color:rgb(148, 168, 240)" 
+                        colspan="{{colspanTramosSalariales}}">CLASIFICADOR DE TRAMOS SALARIALES SI</td>
+                    <td style="background-color:rgb(148, 168, 240)" colspan=1></td>
+                </tr>
+                <thead tasty-thead=""></thead>
+            </thead>
+            <tbody ng-if="loading == false">
+                <tr ng-repeat="row in config.rows track by $index " 
+                class="asignar-legajos-{{row.orden}}">
+                    <td ng-if="hasHeader('cedulaIdentidad')">{{row.cedulaIdentidad|number}}</td>
+                    <td ng-if="hasHeader('apellido')">{{row.apellido}}</td>
+                    <td ng-if="hasHeader('nombre')">{{row.nombre}}</td>
+                    <td ng-if="hasHeader('anhoSF')">{{row.anhoSF}}</td>
+                    <td ng-if="hasHeader('mesSF')">{{row.mesSF}}</td>
+                    <td ng-if="hasHeader('nivelEntidadSF')">{{row.nivelEntidadSF}}</td>
+                    <td ng-if="hasHeader('entidadSF')">{{row.entidadSF}}</td>
+                    <td ng-if="hasHeader('oeeSF')">{{row.oeeSF}}</td>
+                    <td ng-if="hasHeader('lineaSF') && esHacienda">{{row.lineaSF}}</td>
+                    <td ng-if="hasHeader('objetoGastoSF')">{{row.objetoGastoSF}}</td>
+                    <td ng-if="hasHeader('fuenteFinanciamientoSF')">{{row.fuenteFinanciamientoSF}}</td>
+                    <td ng-if="hasHeader('programaSF')">{{row.programaSF}}</td>
+                    <td ng-if="hasHeader('subprogramaSF')">{{row.subprogramaSF}}</td>
+                    <td ng-if="hasHeader('dependenciaSF')">{{row.dependenciaSF}}</td>
+                    <td ng-if="hasHeader('categoriaSF')">{{row.categoriaSF}}</td>
+                    <td ng-if="hasHeader('conceptoSF')">{{row.conceptoSF}}</td>
+                    <td ng-if="hasHeader('presupuestadoSF')">{{row.presupuestadoSF | currency: "Gs.":0 }}</td>
+                    <td ng-if="hasHeader('devengadoSF')">{{row.devengadoSF}}</td>
+                    <td ng-if="hasHeader('regimenSF')">{{row.regimenSF}}</td>                
+                    <td ng-if="hasHeader('cargoSF')">{{row.cargoSF}}</td>
+                    <td ng-if="hasHeader('funcionRealSF')">{{row.funcionRealSF}}</td>  
+                    <td ng-if="hasHeader('numeroPuestoTrabajoSF')">{{row.numeroPuestoTrabajoSF}}</td>
+                    <td ng-if="hasHeader('codigoCeoSF')">{{row.codigoCeoSF}}</td> 
+                    <td ng-if="hasHeader('denominacionCeoSF')">{{row.denominacionCeoSF}}</td> 
+                    <td ng-if="hasHeader('nivelCuoSF')">{{row.nivelCuoSF}}.{{row.subNivelCuoSF}}.{{row.numeroCuoSF}}</td> 
+                    <td ng-if="hasHeader('denominacionCuoSF')">{{row.denominacionCuoSF}}</td> 
+                    <td ng-if="hasHeader('nivelCptSF')">{{row.nivelCptSF}}</td>
+                    <td ng-if="hasHeader('subNivelCptSF')">{{row.subNivelCptSF}}</td> 
+                    <td ng-if="hasHeader('numeroCptSF')">{{row.numeroCptSF}}</td> 
+                    <td ng-if="hasHeader('denominacionCptSF')">{{row.denominacionCptSF}}</td>     
+                    <td ng-if="hasHeader('titularUnidadSF')">{{row.titularUnidadSF|sino}}</td>   
+                    <td ng-if="hasHeader('numeroSecuencialCptESF') && !esHacienda">{{row.numeroSecuencialCptESF}}</td>     
+                    <td ng-if="hasHeader('ambitoCptESF') && !esHacienda">{{row.ambitoCptESF}}</td>     
+                    <td ng-if="hasHeader('nivelCptESF') && !esHacienda">{{row.nivelCptESF}}</td>     
+                    <td ng-if="hasHeader('categoriaCptESF') && !esHacienda">{{row.categoriaCptESF}}</td>     
+                    <td ng-if="hasHeader('denominacionCptESF') && !esHacienda">{{row.denominacionCptESF}}</td> 
+                    <td ng-if="hasHeader('numeroSecuencialCptFSF')">{{row.numeroSecuencialCptFSF}}</td>     
+                    <td ng-if="hasHeader('ambitoCptFSF')">{{row.ambitoCptFSF}}</td>     
+                    <td ng-if="hasHeader('codigoProcesoSF')">
+                        <div ng-repeat="item in row.codigoProcesoSF.split(',')">{{item}}<br>
+                    </td>     
+                    <td ng-if="hasHeader('denominacionCptFSF')">{{row.denominacionCptFSF}}</td>     
+                    <td ng-if="hasHeader('orientacionFuncionalSF')">{{row.orientacionFuncionalSF}}</td> 
+                    <td ng-if="hasHeader('numeroTramoSF')">{{row.numeroTramoSF}}</td>
+                    <td ng-if="hasHeader('minimoSF')">{{row.minimoSF | currency: "Gs.":0}}</td>
+                    <td ng-if="hasHeader('maximoSF')">{{row.maximoSF | currency: "Gs.":0}}</td>   
+                    <td ng-if="hasHeader('anho')">{{row.anho}}</td>
+                    <td ng-if="hasHeader('mes')">{{row.mes}}</td>
+                    <td ng-if="hasHeader('nivelEntidad')">{{row.nivelEntidad}}</td>
+                    <td ng-if="hasHeader('entidad')">{{row.entidad}}</td>
+                    <td ng-if="hasHeader('oee')">{{row.oee}}</td>
+                    <td ng-if="hasHeader('linea') && esHacienda">{{row.linea}}</td>
+                    <td ng-if="hasHeader('objetoGasto')">{{row.objetoGasto}}</td>
+                    <td ng-if="hasHeader('fuenteFinanciamiento')">{{row.fuenteFinanciamiento}}</td>
+                    <td ng-if="hasHeader('programa')">{{row.programa}}</td>
+                    <td ng-if="hasHeader('subprograma')">{{row.subprograma}}</td>
+                    <td ng-if="hasHeader('dependencia')">{{row.dependencia}}</td>
+                    <td ng-if="hasHeader('categoria')">{{row.categoria}}</td>
+                    <td ng-if="hasHeader('concepto')">{{row.concepto}}</td>
+                    <td ng-if="hasHeader('presupuestado')">{{row.presupuestado | currency: "Gs.":0 }}</td>
+                    <td ng-if="hasHeader('devengado')">{{row.devengado}}</td>
+                    <td ng-if="hasHeader('regimen')">{{row.regimen}}</td>                
+                    <td ng-if="hasHeader('cargo')">{{row.cargo}}</td>
+                    <td ng-if="hasHeader('funcionReal')">{{row.funcionReal}}</td>  
+                    <td ng-if="hasHeader('numeroPuestoTrabajo')">{{row.numeroPuestoTrabajo}}</td>
+                    <td ng-if="hasHeader('codigoCeo')">{{row.codigoCeo}}</td> 
+                    <td ng-if="hasHeader('denominacionCeo')">{{row.denominacionCeo}}</td> 
+                    <td ng-if="hasHeader('nivelCuo')">{{row.nivelCuo}}.{{row.subNivelCuo}}.{{row.numeroCuo}}</td> 
+                    <td ng-if="hasHeader('denominacionCuo')">{{row.denominacionCuo}}</td> 
+                    <td ng-if="hasHeader('nivelCpt')">{{row.nivelCpt}}</td>
+                    <td ng-if="hasHeader('subNivelCpt')">{{row.subNivelCpt}}</td> 
+                    <td ng-if="hasHeader('numeroCpt')">{{row.numeroCpt}}</td> 
+                    <td ng-if="hasHeader('denominacionCpt')">{{row.denominacionCpt}}</td>     
+                    <td ng-if="hasHeader('titularUnidad')">{{row.titularUnidad|sino}}</td>   
+                    <td ng-if="hasHeader('numeroSecuencialCptE') && !esHacienda">{{row.numeroSecuencialCptE}}</td>     
+                    <td ng-if="hasHeader('ambitoCptE') && !esHacienda">{{row.ambitoCptE}}</td>     
+                    <td ng-if="hasHeader('nivelCptE') && !esHacienda">{{row.nivelCptE}}</td>     
+                    <td ng-if="hasHeader('categoriaCptE') && !esHacienda">{{row.categoriaCptE}}</td>     
+                    <td ng-if="hasHeader('denominacionCptE') && !esHacienda">{{row.denominacionCptE}}</td> 
+                    <td ng-if="hasHeader('numeroSecuencialCptF')">{{row.numeroSecuencialCptF}}</td>     
+                    <td ng-if="hasHeader('ambitoCptF')">{{row.ambitoCptF}}</td>     
+                    <td ng-if="hasHeader('codigoProceso')">
+                        <div ng-repeat="item in row.codigoProceso.split(',')">{{item}}<br>
+                    </td>     
+                    <td ng-if="hasHeader('denominacionCptF')">{{row.denominacionCptF}}</td>     
+                    <td ng-if="hasHeader('orientacionFuncional')">{{row.orientacionFuncional}}</td> 
+                    <td ng-if="hasHeader('numeroTramo')">{{row.numeroTramo}}</td>
+                    <td ng-if="hasHeader('minimo')">{{row.minimo | currency: "Gs.":0}}</td>
+                    <td ng-if="hasHeader('maximo')">{{row.maximo | currency: "Gs.":0}}</td>    
+                    <td>
+                        <a ng-href="#!{{path}}/{{row.pk}}/ver" target="_blank">
+                            <i class="fa fa-eye"></i> Ver </a> &nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </tabla>
+    <footer-tabla>
+        <hr/>
+        <h5>Descargar: </h5>
+        <a ng-click="getCSV()">
+            <i type="button" class="fa fa-file-o"></i> CSV</a> &nbsp;|&nbsp;
+        <a ng-click="getXLS()">
+            <i type="button" class="fa fa-file-excel-o"></i> EXCEL</a>
+        <!--<a ng-click="getPDF()">
+            <i type="button" class="fa fa-file-pdf-o"></i> PDF</a>-->
+    </footer-tabla>
+</lista-directive>

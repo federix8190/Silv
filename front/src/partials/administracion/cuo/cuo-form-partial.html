@@ -1,0 +1,63 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!{{path}}" title="Ir a Buscar CUO">CUO <span class="badge">1</span></a>
+        </li>
+        <li class="active">
+            <a>Gestionar CUO <span class="badge">2</span></a>
+        </li>
+        <li>
+            <a> Consultar CUO </a>
+        </li>
+    </ul>
+</div>
+
+<form-directive data-require= "CREAR_CUO" data-require-fail="redirect">
+    <titulo>Gestionar Clasificador de Unidad Organizativa (CUO)</titulo>
+    <descripcion>A través de esta sección usted podrá gestionar los datos del Clasificador de Unidad Organizativa
+    </descripcion>
+    <form>
+       
+        <!--Nivel-->
+        <div class="form-group">
+            <label for="nivel" class="col-sm-3 control-label">Nivel* :</label>
+            <div class="col-sm-7">
+                <input type="number" onkeypress="return event.charCode >= 48" min="0" 
+                    ng-model="recurso.nivel" class="form-control" id="nivel" required capitalize>
+                <p class="help-block">Nivel.</p>
+            </div>
+        </div>
+
+        <!--SubNivel-->
+        <div class="form-group">
+            <label for="subNivel" class="col-sm-3 control-label">Subnivel* :</label>
+            <div class="col-sm-7">
+                <input type="number" onkeypress="return event.charCode >= 48" min="0" 
+                    ng-model="recurso.subNivel" class="form-control" id="subNivel" required capitalize>
+                <p class="help-block">Subnivel.</p>
+            </div>
+        </div>
+
+        <!--Número-->
+        <div class="form-group">
+            <label for="numero" class="col-sm-3 control-label">Número* :</label>
+            <div class="col-sm-7">
+                <input type="number" onkeypress="return event.charCode >= 48" min="0" 
+                    ng-model="recurso.numero" class="form-control" id="numero" required capitalize>
+                <p class="help-block">Número.</p>
+            </div>
+        </div>
+        
+        <!--Denominación-->
+        <div class="form-group">
+            <label for="denominacion" class="col-sm-3 control-label">Denominación* :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.denominacion" class="form-control" 
+                    id="denominacion" required capitalize>
+                <p class="help-block">Denominación.</p>
+            </div>
+        </div>
+
+    </form>
+</form-directive>

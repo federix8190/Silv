@@ -1,0 +1,35 @@
+<br/>
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!{{path}}" title="Ir a Buscar CEO">CEO <span class="badge">1</span></a>
+        </li>
+        <li>
+            <a href="#!{{path}}/{{recurso.id}}/editar" title="Ir a modificar CEO">Gestionar CEO <span class="badge">2</span></a>
+        </li>
+        <li class="active">
+            <a> Consultar CEO <span class="badge">3</span></a>
+        </li>
+    </ul>
+</div>
+
+<view-directive data-require= "LISTAR_CEO" data-require-fail="redirect">
+    <titulo>Consultar Configuración estructural organizativa (CEO)</titulo>
+    <descripcion>A través de esta sección usted podrá consultar los datos de los Configuraciones estructurales organizativas.</descripcion>
+    <view>
+        <dt>Código :</dt>
+        <dd>{{recurso.codigo}}</dd>
+        <dt>Denominación :</dt>
+        <dd>{{recurso.denominacion}}</dd>
+        <dt>Clasificador de Unidad Organizativa :</dt>
+        <dd>{{recurso.cuo.nivel}}.{{recurso.cuo.subNivel}}.{{recurso.cuo.numero}}. {{recurso.cuo.denominacion}}</dd>
+        
+        <dt ng-if="recurso.direccion !== ''">Dirección :</dt>
+        <dd ng-if="recurso.direccion !== ''">{{recurso.direccion}}</dd>
+
+        <dt ng-if="recurso.coordinacion !== ''">Coordinación :</dt>
+        <dd ng-if="recurso.coordinacion !== ''">{{recurso.coordinacion}}</dd>
+
+    </view>
+</view-directive>

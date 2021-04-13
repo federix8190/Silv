@@ -1,0 +1,126 @@
+<br/>
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!{{path}}" title="Ir a Buscar CPT-EE">CPT-EE <span class="badge">1</span></a>
+        </li>
+        <li>
+            <a href="#!{{path}}/{{recurso.id}}/editar" title="Ir a modificar CPT-EE">Gestionar CPT-EE <span
+                    class="badge">2</span></a>
+        </li>
+        <li class="active">
+            <a> Consultar CPT-EE <span class="badge">3</span></a>
+        </li>
+    </ul>
+</div>
+
+<!-- Nav tabs -->
+<br>
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation">
+        <a data-target="#cabecera" role="tab" data-toggle="tab">CPT-EE</a>
+    </li>
+    <li role="presentation">
+        <a data-target="#legajos" role="tab" data-toggle="tab">Funcionarios</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+
+    <div role="tabpanel" class="tab-pane " id="cabecera">
+        <view-directive data-require="LISTAR_CPT_EE" data-require-fail="redirect">
+            <titulo>Consultar Clasificador de puesto de trabajo específico escalafonario (CPT-EE)</titulo>
+            <descripcion>
+            A través de esta sección usted podrá consultar los datos de los Clasificadores de puesto de trabajo específico escalafonario.
+            </descripcion>
+            <view>
+                <dt>Denominación :</dt>
+                <dd>{{recurso.denominacion}}</dd>
+                <dt>Número :</dt>
+                <dd>{{recurso.numero}}</dd>
+                <dt>CPT General :</dt>
+                <dd>{{recurso.cpt.denominacion}}</dd>
+                <dt>Ámbito :</dt>
+                <dd>{{recurso.ambito.nombre}}</dd>
+                <dt>Nivel :</dt>
+                <dd>{{recurso.nivel}}</dd>
+                <dt>Categoría :</dt>
+                <dd>
+                    <div ng-repeat="categoria in recurso.categoria">
+                        {{categoria.nombre}}
+                        <br>
+                    </div>
+                </dd>
+            </view>
+        </view-directive>
+    </div>
+
+    <div class="tab-pane" id="legajos" ng-controller="ListarCptELegajoCtrl">
+        <lista-directive>
+            
+            <filtros>
+                <div class="form-group">
+                    <label class="control-label">CI:</label>
+                    <input type="text" class="form-control" ng-model="filterBy.cedulaIdentidad"
+                    ng-keypress="aplicarFiltros($event)" />
+                </div>
+        
+                <div class="form-group">
+                    <label class="control-label">Nombres:</label>
+                    <input type="text" class="form-control" ng-model="filterBy.nombre"
+                    ng-keypress="aplicarFiltros($event)" />
+                </div>
+        
+                <div class="form-group">
+                    <label class="control-label">Apellidos:</label>
+                    <input type="text" class="form-control" ng-model="filterBy.apellido"
+                    ng-keypress="aplicarFiltros($event)" />
+               </div>
+				
+				<div class="form-group">
+					<label class="control-label">Localidad:</label>
+                    <input type="text" class="form-control" ng-model="filterBy.localidad" 
+                    ng-keypress="aplicarFiltros($event)"/>
+				</div>
+        
+                <div class="form-group">
+                    <label class="control-label">Vinculaci&oacute;n:</label>
+                    <select name="vinculacion" type="text" class="form-control" 
+                        ng-options="vinculacion for vinculacion in listaVinculaciones" 
+                        ng-model="vinculacion" ng-change="updateVinculacion(vinculacion)"></select>
+                </div>
+            </filtros>
+
+            <titulo>Funcionarios</titulo>
+            <descripcion>
+                A través de esta sección usted podrá asignar los Funcionarios al CPT.
+            </descripcion>
+            <tabla>
+                <table class="table table-striped">
+                    <thead tasty-thead=""></thead>
+                    <tbody ng-if="loading == false">
+                        <tr ng-repeat="row in config.rows">
+                            <td>{{row.apellido}}</td>
+                            <td>{{row.nombre}}</td>
+                            <td>{{row.cedulaIdentidad | number}}</td>
+							<td>{{row.localidad}}</td>
+                            <td>{{row.nivel}}</td>
+                            <td>{{row.vinculacionFuncionario}}</td>
+                            <td>{{row.cargo}}</td>
+                            <td>{{row.funcionReal}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </tabla>
+
+        </lista-directive>
+
+        <button type="button" class="btn btn-primary" ng-disabled="disabledButtonSave" ng-click="guardar()">
+            <i class="fa fa-floppy-o"></i>&nbsp;{{!disabledButtonSave ? 'Guardar' : 'En Proceso...'}}
+        </button>
+        
+    </div>
+
+</div>

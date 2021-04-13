@@ -1,0 +1,81 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li class="active">
+            <a>CTS <span class="badge">1</span></a>
+        </li>
+
+        <li>
+            <a> Consultar CTS </a>
+        </li>
+    </ul>
+</div>
+
+<lista-directive data-require="LISTAR_CTS" data-require-fail="redirect">
+    <filtros>
+        <div class="form-group">
+            <label for="tramo" class="control-label">Tramo:</label>
+            <select name="tramo" class="form-control" 
+                    ng-options="tramo for tramo in listaTramos track by tramo" 
+                    ng-model="filterBy.numeroTramo" ng-change="aplicarFiltros($event)">
+                </select>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Mes :</label>
+            <select class="form-control" ng-model="filterBy.mes">
+                <option value="">TODOS</option>
+                <option value="1">Enero</option>
+                <option value="2">Febrero</option>
+                <option value="3">Marzo</option>
+                <option value="4">Abril</option>
+                <option value="5">Mayo</option>
+                <option value="6">Junio</option>
+                <option value="7">Julio</option>
+                <option value="8">Agosto</option>
+                <option value="9">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+            </select>
+        </div> 
+
+        <div class="form-group"> 
+            <label class="control-label">Año:</label> 
+            <input type="number" onkeypress="return event.charCode >= 48" min="0" class="form-control" ng-model="filterBy.anho"
+            ng-keypress="aplicarFiltros($event)" /> 
+        </div> 
+    </filtros>
+    
+    <titulo>Clasificación de los tramos salariales (CTS)</titulo>
+    <descripcion>A través de esta sección usted podrá consultar la lista de las Clasificaciones de los tramos salariales.
+    </descripcion>
+    <tabla>
+        <table class="table table-striped">
+            <thead tasty-thead=""></thead>
+            <tbody ng-if="loading == false">
+                <tr ng-repeat="row in config.rows">
+                    <td ng-if="hasHeader('numeroTramo')">{{row.numeroTramo}}</td>
+                    <td ng-if="hasHeader('minimo')">{{row.minimo | number}} Gs.</td>
+                    <td ng-if="hasHeader('maximo')">{{row.maximo | number}} Gs.</td>
+                    <td ng-if="hasHeader('mes')">{{meses[row.mes - 1]}}</td>
+                    <td ng-if="hasHeader('anho')">{{row.anho | number}}</td>
+                    <td>
+                        <a ng-href="#!{{path}}/{{row.id}}/ver">
+                            <i class="fa fa-eye"></i> Ver 
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </tabla>
+    <footer-tabla>
+        <hr/>
+        <h5>Descargar: </h5>
+        <a ng-click="getCSV()"><i type="button" class="fa fa-file-o"></i> CSV</a> &nbsp;|&nbsp;
+        <a ng-click="getXLS()"><i type="button" class="fa fa-file-excel-o"></i> EXCEL</a>
+        <hr/><a class="btn btn-default" href="#!{{path}}/crear"><i class="fa fa-plus"></i> Agregar</a>
+        <!--<a ng-click="getPDF()">
+            <i type="button" class="fa fa-file-pdf-o"></i> PDF</a>-->
+    </footer-tabla>
+</lista-directive>

@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="promociones_salariales" pageWidth="842" pageHeight="645" orientation="Landscape" columnWidth="822" leftMargin="0" rightMargin="20" topMargin="20" bottomMargin="20" uuid="077335e2-0bcf-4039-8031-84a92d82d388">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<parameter name="TITULO" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CPTEF" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="VINCULACION" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="AMBITO" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="GENERO" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CPTEE" class="java.lang.String"/>
+	<parameter name="CPT" class="java.lang.String"/>
+	<parameter name="CEO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="mes" class="java.lang.Integer"/>
+	<field name="anho" class="java.lang.Integer"/>
+	<field name="totalCargos" class="java.lang.Long"/>
+	<field name="promocionadas" class="java.lang.Integer"/>
+	<field name="pctPromocionadas" class="java.lang.Double"/>
+	<field name="promTramosInicial" class="java.lang.Double"/>
+	<field name="promSalariosInicial" class="java.lang.Long"/>
+	<field name="promTramosActual" class="java.lang.Double"/>
+	<field name="promSalariosActual" class="java.lang.Long"/>
+	<field name="varTramoSalarial" class="java.lang.Double"/>
+	<field name="varSalarioBasico" class="java.lang.Long"/>
+	<field name="pctSalario" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="176" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="11" width="820" height="30" uuid="7a8f0e1c-9409-45b1-9b0d-a801b59109b8"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="11" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TITULO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="41" width="80" height="15" uuid="62196eeb-a4ce-4fda-8442-72f166c6de6f"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CPT EF            "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="56" width="80" height="15" uuid="22cbc042-23e3-476c-9320-76ed4e10c73f"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["VINCULACION          "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="71" width="80" height="15" uuid="7ef381bd-26a8-4f53-90ef-d81e4a1ff882"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["AMBITO      "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="86" width="80" height="15" uuid="c02646dc-72a6-480a-aa3e-b4fb28ee4b38"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["GENERO      "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="80" y="41" width="114" height="15" uuid="64f785d1-a588-43b3-96ae-9dd95cf01738"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CPTEF}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="80" y="56" width="114" height="15" uuid="7ba8a6a5-7af3-412f-903a-30bf4eb95712"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{VINCULACION}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="80" y="71" width="114" height="15" uuid="24cc66ea-6ab7-480d-ad20-b02305c75fe9"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{AMBITO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="80" y="86" width="114" height="15" uuid="603618b6-b940-4e83-a237-dc027d4d53b9"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{GENERO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="101" width="80" height="15" uuid="859ec769-92c3-4ca9-8504-98e947a57d68"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CPT EE    "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="80" y="101" width="114" height="15" uuid="acd48f33-6c9e-48eb-85a2-9544d16e0e49"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CPTEE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="80" y="116" width="114" height="15" uuid="1a5d1536-5c36-4585-9e59-04007bc08b2e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CPT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="80" y="131" width="114" height="15" uuid="5bc3d492-b45f-4554-b628-eeebcf47e8f0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CEO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="131" width="80" height="15" uuid="6c88e511-7e4b-4f92-8c2b-7a45fa29ef39"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CEO    "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="116" width="80" height="15" uuid="6d8e497f-ec37-4931-b335-cbe29a87ea96"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CPT     "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="146" width="194" height="30" uuid="ea6ef1df-be59-4432-955d-a8ce3089987e"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["      "]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="99" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="50" width="40" height="49" backcolor="#98B087" uuid="2a8ce9a6-1f65-431c-911a-fe5cc0a2ab10">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Año]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="40" y="50" width="40" height="49" backcolor="#98B087" uuid="cfcb4022-2125-4bf9-b728-c3d1e4d817ef">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ab948ba4-aed5-4919-81d4-885b2280678c"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="0" y="0" width="80" height="50" backcolor="#98B087" uuid="8b3c94e4-75ce-4de2-a88a-3b42d9dbd884">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periodo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="143" y="0" width="454" height="30" backcolor="#98B087" uuid="cb9c42e2-a027-4142-a54c-91c5de45e52f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EVOLUCION DE LOS CAMBIOS DE CATEGORIAS SALARIALES y SALARIOS BASICOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="80" y="0" width="63" height="99" backcolor="#98B087" uuid="c155f62a-5f73-4416-9069-539bfbc54e09">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Totales Personal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="143" y="30" width="87" height="20" backcolor="#98B087" uuid="dfae078d-6c48-4e3b-b0a7-b9f37b0bbb04">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Cantidades]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="230" y="30" width="115" height="20" backcolor="#98B087" uuid="e0cf8415-e198-4d9c-b931-0a071d9f3cc8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Situacion Inicial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="345" y="30" width="110" height="20" backcolor="#98B087" uuid="cce0e979-db95-4f9f-99e7-18527d567103">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Situacion Actual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="455" y="30" width="142" height="20" backcolor="#98B087" uuid="04903fa0-c505-4499-949b-99796b6ec9fb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Variacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="194" y="50" width="36" height="49" backcolor="#98B087" uuid="4dcd29b0-9cf2-4c73-bb34-4430929c3bf3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="230" y="50" width="50" height="49" backcolor="#98B087" uuid="2c473fa1-8a56-494a-bd93-919b892dae3c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Tramo Salarial Inicial Pormedio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="143" y="50" width="51" height="49" backcolor="#98B087" uuid="24b305cc-f06d-4bcb-84b9-4a2f7737df25">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Personas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="280" y="50" width="65" height="49" backcolor="#98B087" uuid="2abf67f0-026f-4370-95dc-9d5262b35e32">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Salario Basico Inicial Promedio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="345" y="50" width="51" height="49" backcolor="#98B087" uuid="c8379540-cfd5-49ff-8ecb-57c670c57e68">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Tramo Salarial Actual Promedio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="396" y="50" width="59" height="49" backcolor="#98B087" uuid="f056e85d-fe1b-426c-8cdd-80cbe98bb13f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Salario Basico Actual Promedio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="455" y="50" width="51" height="49" backcolor="#98B087" uuid="da5e8313-b0ec-4a57-b0fb-f7c1bbf8012b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[de tramo salarial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="506" y="50" width="53" height="49" backcolor="#98B087" uuid="afe0c5a2-0621-4021-821f-eea10f407334">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[de salario basico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" mode="Opaque" x="559" y="50" width="38" height="49" backcolor="#98B087" uuid="305cff34-e095-401c-9747-34ff18436e4e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[%]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="40" height="20" uuid="4bab1275-25cc-4603-a7de-80b2b5929b24">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039f92a6-1ed7-49f3-8cd9-3413b8e48cdc"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anho}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="40" y="0" width="40" height="20" uuid="372a0049-0a32-49f1-98bf-ac3de6c9dd04">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ab948ba4-aed5-4919-81d4-885b2280678c"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mes}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,###" isBlankWhenNull="true">
+				<reportElement x="80" y="0" width="63" height="20" uuid="99374930-39f9-49b8-882e-f4a5bc7eac6c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c1258fdb-f243-410b-ae51-f984792a920a"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalCargos}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,###" isBlankWhenNull="true">
+				<reportElement x="143" y="0" width="51" height="20" uuid="f05fc4e3-f346-4c06-be27-70e8f8cf2ee9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6760c3de-1e94-425e-810d-5d063ccadb77"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{promocionadas}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00#;(#,##0.00#-)" isBlankWhenNull="true">
+				<reportElement x="194" y="0" width="36" height="20" uuid="81dd7cd6-e8a8-4591-a054-011067b3dca6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="df750e19-7615-4b25-9ddd-c042be710473"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pctPromocionadas}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00#;(#,##0.00#-)" isBlankWhenNull="true">
+				<reportElement x="230" y="0" width="50" height="20" uuid="e0b7096a-564d-43da-b037-d4aae13b77e0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cdfb2155-54c6-4d7e-8486-40f065fbb1e7"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{promTramosInicial}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,###" isBlankWhenNull="true">
+				<reportElement x="280" y="0" width="65" height="20" uuid="c35563a5-0b7a-41f1-811f-7e00b6a5a009">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fbe2aa99-3a4b-4d68-b122-ac648c46e5ea"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{promSalariosInicial}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.###;(#,##0.###-)" isBlankWhenNull="true">
+				<reportElement x="345" y="0" width="51" height="20" uuid="da32d196-311f-4fbd-8fb1-e44211d0967c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b40d37cf-4771-480b-aa3b-504c9b557c03"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{promTramosActual}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00#;(#,##0.00#-)" isBlankWhenNull="true">
+				<reportElement x="455" y="0" width="51" height="20" uuid="276f0d8c-bffa-4441-9e1d-0e44457abf0d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c7e664d9-c185-4ccc-8790-c1a2518ab5e0"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{varTramoSalarial}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,###" isBlankWhenNull="true">
+				<reportElement x="506" y="0" width="53" height="20" uuid="0caa2450-9f16-4360-99d4-a3bd0570987c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="15d2b91e-47d9-41fb-8cae-abe733ba6978"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{varSalarioBasico}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,###" isBlankWhenNull="true">
+				<reportElement x="396" y="0" width="59" height="20" uuid="0aa6d90b-0fd0-4eb4-820e-bb743499f76d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8857c11e-9fd7-4e43-9968-626214779152"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{promSalariosActual}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.###;(#,##0.###-)" isBlankWhenNull="true">
+				<reportElement x="559" y="0" width="38" height="20" uuid="6858119a-2da7-4d28-bfaa-dad43e18cf6c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f6000ca-e1e1-4e03-9792-8957140ffcc9"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pctSalario}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="500" splitType="Stretch">
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="30" width="400" height="190" uuid="d14effa4-bc5c-4066-9fee-e4ebbba712d6"/>
+					<box>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Prom. Tramo Salarial Inicial"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{anho}+"-"+$F{mes}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{promTramosInicial}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Prom.Tramo Salarial Actual"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{anho}+"-"+$F{mes}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{promTramosActual}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Variacion Tramo Salarial"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{anho}+"-"+$F{mes}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{varTramoSalarial}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+			<textField>
+				<reportElement x="0" y="0" width="596" height="30" uuid="812457fe-23f0-4c10-bf72-a64c088011c5"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["      "]]></textFieldExpression>
+			</textField>
+			<lineChart>
+				<chart evaluationTime="Report">
+					<reportElement x="420" y="30" width="400" height="190" uuid="b6438bc1-e8ed-44e2-a815-553b38d4077f"/>
+					<box>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Prom. Tramo Salarial  Inicial"]]></seriesExpression>
+						<categoryExpression><![CDATA[0]]></categoryExpression>
+						<valueExpression><![CDATA[$F{promTramosInicial}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Prom. Tramo Salarial Actual"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{anho}+"-"+$F{mes}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{promTramosActual}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Variacion Tramo Salarial"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{anho}+"-"+$F{mes}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{varTramoSalarial}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<linePlot>
+					<plot/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</linePlot>
+			</lineChart>
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="251" width="400" height="190" uuid="3ba4e529-9942-489c-92bf-e179f0a45137"/>
+					<box>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Prom. Salarial Inicial"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{anho}+"-"+$F{mes}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{promSalariosInicial}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Prom. Salarial Actual"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{anho}+"-"+$F{mes}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{promSalariosActual}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Variacion Salarial"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{anho}+"-"+$F{mes}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{varSalarioBasico}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+			<lineChart>
+				<chart evaluationTime="Report">
+					<reportElement x="420" y="251" width="400" height="190" uuid="6e369dfb-b163-498d-8996-394700c500a5"/>
+					<box>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Prom. Salarial  Inicial"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{anho}+"-"+$F{mes}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{promSalariosInicial}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Prom. Salarial Actual"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{anho}+"-"+$F{mes}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{promSalariosActual}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Variacion Salarial"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{anho}+"-"+$F{mes}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{varSalarioBasico}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<linePlot>
+					<plot/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</linePlot>
+			</lineChart>
+			<textField>
+				<reportElement x="1" y="221" width="819" height="30" uuid="9c973580-0f1b-406c-afe9-d58a91ae0606"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement markup="none">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["      "]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,61 @@
+[tasty-pagination] {
+    p {
+        margin-top: 35px;
+        font-style: italic;
+    }
+}
+
+thead[tasty-thead] {
+    th.sortable.active {
+        background: white;
+    }
+}
+
+.form-wrapper {
+    .form-wrapper {
+        margin-top: 0px;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .tasty-pagination-responsive {
+        .row {
+            .col-xs-6.text-center {
+                width: 59%
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 363px) {
+    .tasty-pagination-responsive {
+        .row {
+            .col-xs-6.text-center {
+                width: 64%
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 346px) {
+    .tasty-pagination-responsive {
+        .row {
+            .col-xs-6.text-center {
+                width: 100%
+            }
+        }
+    }
+}
+
+tfoot {
+    background: white;
+}
+
+.search-info {
+    text-align: center;
+    img {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+

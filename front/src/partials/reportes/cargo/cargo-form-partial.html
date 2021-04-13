@@ -1,0 +1,95 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!{{path}}" title="Ir a Buscar Cargo">Cargo <span class="badge">1</span></a>
+        </li>
+        <li class="active">
+            <a>Gestionar Cargo <span class="badge">2</span></a>
+        </li>
+        <li>
+            <a> Consultar Cargo </a>
+        </li>
+    </ul>
+</div>
+
+<form-directive data-require= "CREAR_CARGOS" data-require-fail="redirect">
+    <titulo>Gestionar Cargos existentes</titulo>
+    <descripcion>A través de esta sección usted podrá gestionar los datos de los Cargos existentes.
+    </descripcion>
+    <form>
+        <!--ID-->
+        <div class="form-group" ng-if="!isCrear()">
+            <label class="col-sm-3 control-label">ID :</label>
+            <div class="col-sm-7">
+                <label class="control-label">{{recurso.id}}</label>
+                <p class="help-block">Identificador.</p>
+            </div>
+        </div>
+        <!--ID Ceo-->
+        <div class="form-group">
+            <label for="idCeo" class="col-sm-3 control-label">ID Ceo :*</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.idCeo" class="form-control" id="idCeo">
+                <p class="help-block">Identificador de Configuración Estructural Organizativa.</p>
+            </div>
+        </div>
+         <!--ID Cuo-->
+         <div class="form-group">
+            <label for="idCuo" class="col-sm-3 control-label">ID Cuo :*</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.idCuo" class="form-control" id="idCuo">
+                <p class="help-block">Identificador de CUO</p>
+            </div>
+        </div>
+        <!--ID Mecip-->
+        <div class="form-group">
+            <label for="idMecip" class="col-sm-3 control-label">ID Mecip :*</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.idMecip" class="form-control" id="idMecip">
+                <p class="help-block">Identificador de Modelo Estándar de Control Interno del Paraguay</p>
+            </div>
+        </div>
+        <!--ID Tramo-->
+        <div class="form-group">
+            <label for="idTramo" class="col-sm-3 control-label">ID Tramo :*</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.idTramo" class="form-control" id="idTramo">
+                <p class="help-block">Identificador de Clasificación de los Tramos Salariales.</p>
+            </div>
+        </div>
+        <!--Descripción-->
+        <div class="form-group">
+            <label for="descripcion" class="col-sm-3 control-label">Descripción :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.descripcion" class="form-control" id="descripcion">
+                <p class="help-block">Descripción.</p>
+            </div>
+        </div>
+        <!--Línea-->
+        <div class="form-group">
+            <label for="linea" class="col-sm-3 control-label">Línea :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.linea" class="form-control" id="linea">
+                <p class="help-block">Línea.</p>
+            </div>
+        </div>
+        <!--Categoría-->
+        <div class="form-group">
+            <label for="categoria" class="col-sm-3 control-label">Categoría :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.categoria" class="form-control" id="categoria">
+                <p class="help-block">Categoría.</p>
+            </div>
+        </div>
+        <!-- Presupuestado-->
+        <div class="form-group">
+            <label for="presupuestado" class="col-sm-3 control-label">Presupuestado :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.presupuestado" class="form-control" id="presupuestado">
+                <p class="help-block">Presupuestado.</p>
+            </div>
+        </div>
+
+    </form>
+</form-directive>

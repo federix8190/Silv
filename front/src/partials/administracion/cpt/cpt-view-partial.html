@@ -1,0 +1,36 @@
+<br/>
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!{{path}}" title="Ir a Buscar CPT">CPT <span class="badge">1</span></a>
+        </li>
+        <li>
+            <a href="#!{{path}}/{{recurso.id}}/editar" title="Ir a modificar CPT">Gestionar CPT 
+                <span class="badge">2</span>
+            </a>
+        </li>
+        <li class="active">
+            <a> Consultar CPT <span class="badge">3</span></a>
+        </li>
+    </ul>
+</div>
+
+<view-directive data-require= "LISTAR_CPT" data-require-fail="redirect">
+    <titulo>Consultar Clasificador de puesto de trabajo (CPT)</titulo>
+    <descripcion>
+        A través de esta sección usted podrá consultar los datos de los Clasificadores de puesto de trabajo.
+    </descripcion>
+    <view>
+        <dt>Nivel:</dt>
+        <dd>{{recurso.nivel}}</dd>
+        <dt>Subnivel:</dt>
+        <dd>{{recurso.subNivel}}</dd>
+        <dt>Número:</dt>
+        <dd>{{recurso.numeroGasto}}</dd>
+        <dt>Denominación:</dt>
+        <dd>{{recurso.denominacion}}</dd>
+        <dt>Titular Unidad:</dt>
+        <dd>{{recurso.tituloUnidad? 'S' : 'N'}}</dd>
+    </view>
+</view-directive>

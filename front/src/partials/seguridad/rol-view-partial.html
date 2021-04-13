@@ -1,0 +1,41 @@
+<br/>
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!{{path}}" title="Ir a Buscar Roles">Roles <span class="badge">1</span></a>
+        </li>
+        <li>
+            <a href="#!{{path}}/{{recurso.id}}/editar" title="Ir a modificar Rol">Gestionar Rol
+                <span class="badge">2</span>
+            </a>
+        </li>
+        <li class="active">
+            <a> Consultar Rol <span class="badge">3</span></a>
+        </li>
+    </ul>
+</div>
+
+<view-directive data-require= "LISTAR_ROLES" data-require-fail="redirect">
+    <titulo>Roles</titulo>
+    <descripcion>
+        A través de esta sección usted podrá consultar los datos de los Roles.
+    </descripcion>
+    <view>
+        <dt>C&oacute;digo:</dt>
+        <dd>{{recurso.codigo}}</dd>
+        <dt>Descripci&oacute;n :</dt>
+        <dd>{{recurso.descripcion}}</dd>
+
+        <div style="column-count: 4;">
+            <dt>Permisos para el Rol :</dt>
+        </div>
+        <br>
+        <div class="datos-2-columnas">
+            <div ng-repeat="(i, p) in permisos track by $index">
+                <input ng-model="p.activo" style="float: left;" type="checkbox" disabled><span style="padding-left: 8px">{{p.nombre}}</span>
+            </div>
+        </div>
+    </view>
+
+</view-directive>

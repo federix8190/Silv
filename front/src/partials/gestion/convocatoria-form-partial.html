@@ -1,0 +1,178 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li ng-if="hasRole('LISTAR_CONVOCATORIAS')">
+            <a href="#!{{path}}" title="Ir a Buscar Convocatorias">Convocatorias <span class="badge">1</span></a>
+        </li>
+        <li class="active">
+            <a>Gestionar Convocatorias <span class="badge">2</span></a>
+        </li>
+        <li>
+            <a> Consultar Convocatoria</a>
+        </li>
+    </ul>
+</div>
+
+<form-directive data-require="CREAR_CONVOCATORIAS" data-require-fail="redirect">
+    <titulo>Gestionar Convocatorias</titulo>
+    <descripcion>
+    A través de esta sección usted podrá gestionar los datos de las Convocatorias. <br>
+    Puede seleccionar ya sea un CPT o algún Cargo Vacante para un periodo determinado.
+    </descripcion>
+    
+    <form>
+
+        <div>
+            <label class="control-label">A&ntilde;o:</label>
+            <input autofocus style="width:100px" type="text" class="form-control" 
+                   ng-model="recurso.anho" />
+
+            <div style="margin-right:600px" >
+                <label class="control-label">Mes:</label>
+                <select class="form-control" 
+                        ng-model="recurso.mes" >
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+            </div>
+        </div>
+
+        <br/>
+
+        <a class="btn btn-primary" ng-click="buscar()"><i class="fa fa-search"></i>&#xA0;Buscar</a>
+
+        <hr/>        
+
+        <div class="form-group">
+            <label for="cargo" class="col-sm-3 control-label">Puesto* :</label>
+            <div class="col-sm-7">
+                <select type="text" class="form-control" ng-disabled="!PeriodoSeleccionado"
+                        data-ng-options="cargo.nombre for cargo in listaCargos" 
+                        data-ng-model="cargo" ng-change="updateCargo(cargo)">
+                </select>
+                <p class="help-block">Seleccione un cargo vacante.</p>
+            </div>
+        </div>
+
+        <div ng-if="esHacienda" class="form-group">
+            <label for="cptF" class="col-sm-3 control-label">CPT Funcional* :</label>
+            <div class="col-sm-7">
+                <select type="text" class="form-control"
+                        data-ng-options="cptF.den for cptF in listaCptF" 
+                        data-ng-model="cptF" ng-change="updateCptF(cptF)">
+                </select>
+                <p class="help-block">Seleccione un CPT Funcional.</p>
+            </div>
+        </div>
+            
+        <hr/>
+
+        <div ng-if="mostrarDatosCargo" class="datos-2-columnas">
+            <dt>Cargo:</dt>
+            <dd>{{recurso.nombre}}</dd>
+        </div>
+
+        <div ng-if="mostrarDatosCargo" class="datos-2-columnas">
+            <dt>Presupuestado:</dt>
+            <dd>{{recurso.presupuestado | number}}</dd>
+        </div>
+            
+        <div ng-if="mostrarDatosCargo" class="datos-2-columnas">
+            <dt>Estructura:</dt>
+            <dd>{{recurso.estructura}}</dd>
+        </div>
+
+        <div ng-if="mostrarDatosCargo" class="datos-2-columnas">
+            <dt>Categor&iacute;a:</dt>
+            <dd>{{recurso.categoria}}</dd>
+        </div> 
+
+        <div ng-if="mostrarDatosCargo" class="datos-2-columnas">
+            <dt>Coordinaci&oacute;n - Departamento:</dt>
+            <dd>{{recurso.departamento}}</dd>
+        </div>
+
+        <div ng-if="mostrarDatosCargo" class="datos-2-columnas">
+            <dt>Programa - Subsecretaria:</dt>
+            <dd>{{recurso.programa}}</dd>
+        </div>   
+
+        <div ng-if="mostrarDatosCargo" class="datos-2-columnas">
+            <dt>Direcci&oacute;n:</dt>
+            <dd>{{recurso.direccion}}</dd>
+        </div>
+
+        <div ng-if="mostrarDatosCargo" class="datos-2-columnas">
+            <dt>L&iacute;nea:</dt>
+            <dd>{{recurso.linea}}</dd>
+        </div>
+
+        <hr/>
+
+        <div class="form-group">
+            <label for="descripcion" class="col-sm-3 control-label">Código Concurso* :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.codigoConcurso" class="form-control" 
+                    id="codigoConcurso" required capitalize>
+                <p class="help-block">Código Concurso</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion" class="col-sm-3 control-label">Descripci&oacute;n* :</label>
+            <div class="col-sm-7">
+                <textarea rows="3" type="text" ng-model="recurso.descripcion" class="form-control" id="descripcion" required capitalize>
+                <p class="help-block">Descripci&oacute;n, observaciones y/o requisitos para la convocatoria.</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="publica" class="col-sm-3 control-label">Pública* : {{recurso.publica| sino}}</label>
+            <div class="col-sm-7">
+                <label class="switch">
+                    <input type="checkbox" ng-init="recurso.publica=true" ng-model="recurso.publica" id="publica">
+                    <div class="slider round"></div>
+                </label>
+                <p class="help-block">Indicar si la convocatoria es pública o interna.</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="vigencia" class="col-sm-3 control-label">Vigencia* :</label>
+            <div class="col-sm-9">
+                <div style="column-count: 4;">
+                    <dt>Inicio:*</dt>
+                    <input type="date" ng-model="recurso.inicioVigencia" id="inicioVigencia" required>
+                    <dt style="padding-left:32px;">Fin:*</dt>
+                    <input type="date" ng-model="recurso.finVigencia" id="finVigencia" required>
+                </div>
+                <p class="help-block">Fecha de inicio y fin de la vigencia de la convocatoria.</p>
+            </div>
+        </div>
+
+        <dt>Cargar PDF:</dt>
+        <dd>
+            <button id="cv" class="btn btn-default" type="file" accept="*/*" 
+                    ngf-select="uploadFiles($file, $invalidFiles)">
+                <i class="fa fa-upload"></i> Cargar Archivo
+            </button>
+        </dd>
+
+    </form>
+
+    <button id="cv" class="btn btn-default" type="file" accept="*/*" 
+            ngf-select="uploadFiles($file, $invalidFiles)">
+        <i class="fa fa-upload"></i> Cargar Archivo
+    </button>
+
+</form-directive>

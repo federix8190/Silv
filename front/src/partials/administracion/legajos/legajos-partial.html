@@ -1,0 +1,35 @@
+<lista-directive>
+	<filtros>
+        <div class="form-group">
+            <label for="cpt" class="control-label">Nivel CPT:</label>
+            <select name="cpt" type="text" class="form-control" 
+                    ng-options="cpt for cpt in listaCpt" 
+                    ng-model="cpt" ng-change="updateCpt(cpt)"></select>
+			<hr>
+			<button type="button" class="btn btn-primary" ng-disabled="disabledButtonSave" ng-click="guardar()">
+				<i class="fa fa-floppy-o"></i>&nbsp;{{!disabledButtonSave ? 'Guardar' : 'En Proceso...'}}
+			</button>
+        </div>
+    </filtros>
+	<titulo>Indice de Congruencia Puesto-Remuneraci&oacute;n </titulo>
+	<descripcion>Indice de Congruencia Puesto-Remuneraci&oacute;n.</descripcion>
+	<tabla>
+		<table class="table table-striped">
+			<thead tasty-thead=""></thead>
+			<tbody ng-if="loading == false">
+				<tr ng-repeat="row in config.rows">
+					<td>{{row.apellido}}</td>
+                    <td>{{row.nombre}}</td>
+                    <td>{{row.cedulaIdentidad | number}}</td>
+                    <td>{{row.vinculacionFuncionario}}</td>
+                    <td>{{row.cargo}}</td>
+                    <td>{{row.funcionReal}}</td>
+					<td>
+                        <a ng-href="#!/reportes/legajos/{{row.cedulaIdentidad}}/ver"> <i class="fa fa-eye"></i> Ver </a> &nbsp;
+                    </td>
+				</tr>
+			</tbody>
+		</table>
+	</tabla>
+</lista-directive>
+

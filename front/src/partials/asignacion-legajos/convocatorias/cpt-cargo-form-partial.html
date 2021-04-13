@@ -1,0 +1,46 @@
+<form-directive>
+    <titulo>
+        <span ng-if="!esHacienda">Asignar CPT-EE y CPT-EF al cargo disponible.</span>
+        <span ng-if="esHacienda">Asignar CPT-EF al cargo disponible.</span>
+    </titulo>
+    <descripcion>A través de esta sección usted podrá asignar los Clasificadores de puesto de trabajo específico
+        escalafonario y funcional a los cargos disponibles.
+    </descripcion>
+    <form>
+        <!--Nivel CPT-->
+        <div class="form-group">
+            <label for="nivelCpt" class="col-sm-3 control-label">CPT General :</label>
+            <div class="col-sm-7">
+                <select id="nivelCpt" type="text" class="form-control"
+                        data-ng-options="cpt.denominacion for cpt in listaCpt"
+                        data-ng-model="recurso.cpt"></select>
+                <p class="help-block">Nivel de clasificador de puestos de trabajo.</p>
+            </div>
+        </div>
+
+        <!--Nivel CPT EE-->
+        <div class="form-group" ng-if="!esHacienda">
+            <label for="nivelCptE" class="col-sm-3 control-label">CPT EE :</label>
+            <div class="col-sm-7">
+                <select id="nivelCptE" type="text" class="form-control"
+                        data-ng-options="cptE.denominacion + ' - ' + cptE.nombreCategoria for cptE in listaCptE" 
+                        ng-disabled="!recurso.cpt"
+                        data-ng-model="recurso.cptE"></select>
+                <p class="help-block">Nivel de clasificador de puestos de trabajo específico.</p>
+            </div>
+        </div>
+
+        <!--Nivel CPT EF-->
+        <div class="form-group">
+            <label for="nivelCptF" class="col-sm-3 control-label">CPT EF :</label>
+            <div class="col-sm-7">
+                <!--<input type="text" ng-model="recurso.nivelCpt" class="form-control" id="nivelCpt">-->
+                <select id="nivelCptF" type="text" class="form-control"
+                        data-ng-options="cptF.den for cptF in listaCptF" 
+                        ng-disabled="!recurso.cpt"
+                        data-ng-model="recurso.cptF"></select>
+                <p class="help-block">Nivel de clasificador de puestos de trabajo funcional.</p>
+            </div>
+        </div>
+    </form>
+</form-directive>

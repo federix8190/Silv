@@ -1,0 +1,10 @@
+src/vendors/*
+dist/*
+node_modules/*
+.sass-cache/*
+
+\.eslintrc\.js
+
+\.vscode/settings\.json
+
+package-lock\.json

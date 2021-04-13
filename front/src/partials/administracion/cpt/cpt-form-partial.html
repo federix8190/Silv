@@ -1,0 +1,96 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!{{path}}" title="Ir a Buscar CPT">CPT <span class="badge">1</span></a>
+        </li>
+        <li class="active">
+            <a>Gestionar CPT <span class="badge">2</span></a>
+        </li>
+        <li>
+            <a> Consultar CPT</a>
+        </li>
+    </ul>
+</div>
+
+<form-directive data-require= "CREAR_CPT" data-require-fail="redirect">
+    
+    <titulo>Gestionar Clasificador de puesto de trabajo (CPT)</titulo>
+    <descripcion>
+    A través de esta sección usted podrá gestionar los datos de los Clasificadores de puesto de trabajo.
+    </descripcion>
+    
+    <form>
+
+        <!--Nivel-->
+        <div class="form-group">
+            <label for="nivel" class="col-sm-3 control-label">Nivel* :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.nivel" class="form-control" id="nivel" 
+                    required ng-disabled="!activo" capitalize>
+                <p class="help-block">Nivel.</p>
+            </div>
+        </div>
+
+        <!--SubNivel-->
+        <div class="form-group">
+            <label for="subNivel" class="col-sm-3 control-label">Subnivel* :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.subNivel" class="form-control" id="subNivel" 
+                    required ng-disabled="!activo" capitalize>
+                <p class="help-block">Subnivel.</p>
+            </div>
+        </div>
+
+        <!--Número Gasto-->
+        <div class="form-group">
+            <label for="numeroGasto" class="col-sm-3 control-label">Número* :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.numeroGasto" class="form-control" id="numeroGasto" required ng-disabled="!activo" capitalize>
+                <p class="help-block">Número.</p>
+            </div>
+        </div>
+
+        <!--Denominación-->
+        <div class="form-group">
+            <label for="denominacion" class="col-sm-3 control-label">Denominación* :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.denominacion" class="form-control" id="denominacion" required ng-disabled="!activo" capitalize>
+                <p class="help-block">Denominación.</p>
+            </div>
+        </div>
+
+        <!--Titulo Unidad-->
+        <div class="form-group">
+            <label for="tituloUnidad" class="col-sm-3 control-label">Titular Unidad* :</label>
+            <div class="col-sm-7">
+                <select id="tituloUnidad" class="form-control" ng-init="recurso.tituloUnidad = false"
+                    data-ng-model="recurso.tituloUnidad" required ng-disabled="!activo">
+                        <option ng-value="true">S</option>
+                        <option ng-value="false">N</option>
+                </select>
+                <!-- <input type="text" ng-model="recurso.tituloUnidad?'S':'N'" class="form-control" id="tituloUnidad"> -->
+                <p class="help-block">Titular Unidad.</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inicioVigencia" class="col-sm-3 control-label">Inicio Vigencia* :</label>
+            <div class="col-sm-7">
+                <input type="date" ng-model="inicioVigencia" id="inicioVigencia" 
+                     ng-disabled="!activo" ng-change="inicioVigenciaChange(inicioVigencia)">
+                <p class="help-block">Inicio Vigencia.</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="finVigencia" class="col-sm-3 control-label">Fin Vigencia* :</label>
+            <div class="col-sm-7">
+                <input type="date" ng-model="finVigencia" id="finVigencia" 
+                    ng-change="finVigenciaChange(finVigencia)">
+                <p class="help-block">Fin Vigencia.</p>
+            </div>
+        </div>
+
+    </form>
+</form-directive>

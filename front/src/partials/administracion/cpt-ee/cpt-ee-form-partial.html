@@ -1,0 +1,176 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!{{path}}" title="Ir a Buscar CPT-EE">CPT-EE <span class="badge">1</span></a>
+        </li>
+        <li class="active">
+            <a>Gestionar CPT-EE <span class="badge">2</span></a>
+        </li>
+        <li>
+            <a> Consultar CPT-EE </a>
+        </li>
+    </ul>
+</div>
+
+<!--<form-directive data-require= "CREAR_CPT_EE" data-require-fail="redirect" ng-if="isCrear()">-->
+<form-directive data-require= "CREAR_CPT_EE" data-require-fail="redirect">
+    <titulo>Gestionar Clasificador de puesto de trabajo específico escalafonario (CPT-EE)</titulo>
+    <descripcion>A través de esta sección usted podrá gestionar los datos de los Clasificadores de puesto de trabajo específico escalafonario.
+    </descripcion>
+    <form>
+
+         <!--Nivel CPT-->
+        <div class="form-group">
+            <label for="nivelCpt" class="col-sm-3 control-label">CPT General* :</label>
+            <div class="col-sm-7">
+                <!--<input type="text" ng-model="recurso.nivelCpt" class="form-control" id="nivelCpt">-->
+                <select id="nivelCpt" type="text" class="form-control" 
+                            data-ng-options="cpt.nivel + '.' + cpt.subNivel + '.' + cpt.numeroGasto + ' ' 
+                                + cpt.denominacion for cpt in listaCpt"
+                    data-ng-model="recurso.cpt"  required
+                    ng-change="obtenerNumeroCPTEE(recurso.cpt)">                        
+                    </select>
+                <p class="help-block">Nivel de clasificador de puestos de trabajo.</p>
+            </div>
+        </div>
+        
+         <!--Número-->
+         <div class="form-group">
+            <label for="numero" class="col-sm-3 control-label">Número* :</label>
+            <div class="col-sm-7">
+                <!-- <input type="text" ng-model="recurso.numero" class="form-control" id="numero" required> -->
+                <td type="text" ng-model="recurso.numero" class="form-control" id="numero" required>{{recurso.numero}}</td>
+                <p class="help-block">Número.</p>
+            </div>
+        </div>
+        
+        <!--Ámbito-->
+        <div class="form-group">
+            <label for="ambito" class="col-sm-3 control-label">Ámbito* :</label>
+            <div class="col-sm-7">
+                <select id="ambito" type="text" class="form-control" 
+                            data-ng-options="ambito.nombre for ambito in listaAmbito"
+                    data-ng-model="recurso.ambito" required
+                    ng-change="onChangeAmbito(recurso.ambito)">
+                    </select>
+                <p class="help-block">Ámbito.</p>
+            </div>
+        </div>
+         <!--Nivel-->
+         <div class="form-group">
+            <label for="nivel" class="col-sm-3 control-label">Nivel* :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.nivel" class="form-control" id="nivel" capitalize>
+                <p class="help-block">Nivel.</p>
+            </div>
+        </div>
+        <!--Categoría-->
+        <div class="form-group">
+            <label for="categoria" class="col-sm-3 control-label">Categoría* :</label>
+            <div class="col-sm-7">
+                <select id="categoria" type="text" class="selectpicker" multiple 
+                    data-ng-options="categoria.nombre for categoria in listaCategoria" 
+                    data-ng-model="recurso.categoria" ></select>
+                <p class="help-block">Categoría.</p>
+            </div>
+        </div>
+        <!--Denominación-->
+        <div class="form-group">
+            <label for="denominacion" class="col-sm-3 control-label">Denominación* :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.denominacion" 
+                    class="form-control" id="denominacion" required capitalize>
+                <p class="help-block">Denominación.</p>
+            </div>
+        </div>
+        <!--Identificador
+        <div class="form-group" ng-if="!isCrear()">
+            <label class="col-sm-3 control-label">ID :</label>
+            <div class="col-sm-7">
+                <label class="control-label">{{recurso.id}}</label>
+                <p class="help-block">Identificador.</p>
+            </div>
+        </div>-->
+       
+    </form>
+</form-directive>
+
+<!-- Nav tabs 
+<br>
+<ul class="nav nav-tabs" role="tablist" ng-if="!isCrear()">
+    <li role="presentation">
+        <a data-target="#cabecera" role="tab" data-toggle="tab">CPT-EE</a>
+    </li>
+</ul>
+
+<div class="tab-content" >
+
+    <div role="tabpanel" class="tab-pane" id="cabecera">
+
+        <form-directive data-require= "CREAR_CPT_EE" data-require-fail="redirect">
+            <titulo>Gestionar Clasificador de puesto de trabajo específico escalafonario (CPT-EE)</titulo>
+            <descripcion>A través de esta sección usted podrá gestionar los datos de los Clasificadores de puesto de trabajo específico escalafonario.
+            </descripcion>
+            <form>
+
+                <div class="form-group">
+                    <label for="nivelCpt" class="col-sm-3 control-label">CPT General :</label>
+                    <div class="col-sm-7">
+                        <select id="nivelCpt" type="text" class="form-control" 
+                            data-ng-options="cpt.nivel + '.' + cpt.subNivel + '.' + cpt.numeroGasto + ' ' 
+                                + cpt.denominacion for cpt in listaCpt" 
+                            data-ng-model="recurso.cpt"></select>
+                        <p class="help-block">Nivel de clasificador de puestos de trabajo.</p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="numero" class="col-sm-3 control-label">Número :</label>
+                    <div class="col-sm-7">
+                        <input type="text" ng-model="recurso.numero" class="form-control" id="numero">
+                        <p class="help-block">Número.</p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ambito" class="col-sm-3 control-label">Ámbito :</label>
+                    <div class="col-sm-7">
+                        <select id="ambito" type="text" class="form-control" 
+                            data-ng-options="ambito.nombre for ambito in listaAmbito" 
+                            data-ng-model="recurso.ambito"></select>
+                        <p class="help-block">Ámbito.</p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="nivel" class="col-sm-3 control-label">Nivel :</label>
+                    <div class="col-sm-7">
+                        <input type="text" ng-model="recurso.nivel" class="form-control" id="nivel">
+                        <p class="help-block">Nivel.</p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="categoria" class="col-sm-3 control-label">Categoría Salarial :</label>
+                    <div class="col-sm-7">
+                        <select id="categoria" type="text" class="selectpicker" multiple
+                            data-ng-options="categoria.nombre for categoria in listaCategoria" 
+                            data-ng-model="recurso.categoria"/>
+                        <p class="help-block">Categoría.</p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="denominacion" class="col-sm-3 control-label">Denominación :</label>
+                    <div class="col-sm-7">
+                        <input type="text" ng-model="recurso.denominacion" 
+                            class="form-control" id="denominacion">
+                        <p class="help-block">Denominación.</p>
+                    </div>
+                </div>
+            </form>
+        </form-directive>
+    </div>
+
+</div>-->

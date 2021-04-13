@@ -1,0 +1,45 @@
+<br/>
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!{{path}}" title="Ir a Buscar CPT">Usuarios <span class="badge">1</span></a>
+        </li>
+        <li>
+            <a href="#!{{path}}/{{recurso.id}}/editar" title="Ir a modificar CPT">Gestionar Usuario 
+                <span class="badge">2</span>
+            </a>
+        </li>
+        <li class="active">
+            <a> Consultar Usuario <span class="badge">3</span></a>
+        </li>
+    </ul>
+</div>
+
+<view-directive>
+    <titulo>Datos del usuario</titulo>
+    <descripcion>A través de esta sección podrá ver los datos del interesado</descripcion>
+    <view>
+        <dt>Nombre:</dt>
+        <dd>
+            {{recurso.nombre}}
+        </dd>
+		<dt>Apellido:</dt>
+        <dd>
+            {{recurso.apellido}}
+        </dd>
+        <dt>Número de Cedula:</dt>
+        <dd>
+            {{recurso.cedula|number}}
+        </dd>
+        <dt>Dirección de correo electrónico:</dt>
+        <dd>
+            {{recurso.email}}
+        </dd>
+
+        <br>
+        <a ng-if="tieneCV" id="cv" class="btn btn-default" href="{{urlDescarga}}" target="_blank">
+            <i class="fa fa-download"></i> Descargar CV
+        </a>&nbsp;&nbsp;&nbsp;
+    </view>
+</view-directive>

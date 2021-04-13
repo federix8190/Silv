@@ -1,0 +1,154 @@
+@import url('Anton.css');
+.cloud {
+    font-size: 28px;
+    position: relative;
+    width: 100%;
+    min-height: 200px;
+    margin-bottom: 50px;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    background: $pane-gray-border;
+    font-family: 'Anton', sans-serif;
+    border-radius: 0px 0px 15px 15px;
+    /* creates the larger triangle */
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: -50px;
+        right: 40%;
+        border-width: 31px 25px 19px 24px;
+        border-style: solid;
+        border-color: $pane-gray-border transparent transparent;
+    }
+    .value {
+        font-size: 2.1em;
+        transform: scale(1, 2);
+        margin-top: 0.9em;
+    }
+    .bootom {
+        font-size: 1em;
+    }
+    .fa {
+        font-size: 4em;
+        //transform: rotate(-19deg);
+    }
+    .btn.btn-default {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.47);
+        border-color: transparent;
+        font-weight: normal;
+        text-transform: uppercase;
+    }
+}
+.cloud-footer {
+    margin-top: -65px;
+    background: $pane-gray-bg;
+    min-height: 100px;
+    padding: 10px;
+    padding-top: 60px;
+    border: 1px solid $pane-gray-border;
+}
+.green {
+    background: #5DC6C6;
+    //color: white;
+    hr {
+        border-color: white;
+    }
+    &:before {
+        border-color: #5DC6C6 transparent transparent;
+    }
+}
+.pink {
+    background: #FF6384;
+    //color: white;
+    hr {
+        border-color: white;
+    }
+    &:before {
+        border-color: #FF6384 transparent transparent;
+    }
+}
+.yellow {
+    background: #FFCE56;
+    //color: #7b6b47;
+    hr {
+        border-color: white;
+    }
+    &:before {
+        border-color: #FFCE56 transparent transparent;
+    }
+}
+.blue {
+    background: #48A6E7;
+    //color: white;
+    hr {
+        border-color: white;
+    }
+    &:before {
+        border-color: #48A6E7 transparent transparent;
+    }
+}
+.cloud.box {
+    background: $active-color;
+    border-radius: 0px 10px 10px 0px;
+    min-height: 255px;
+    /* creates the larger triangle */
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: 50%;
+        right: -25px;
+        border-width: 25px 0px 25px 25px;
+        border-style: solid;
+        border-color: transparent transparent transparent $active-color;
+    }
+}
+.box-body {
+    background: $pane-gray-bg;
+    min-height: 256px;
+    padding: 25px;
+    padding-left: 25%;
+    border: 1px solid $pane-gray-border;
+    width: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+
+
+
+.box-body {
+    background: $pane-gray-bg;
+    min-height: 256px;
+    padding: 25px;
+    padding-left: 25%;
+    border: 1px solid $pane-gray-border;
+    width: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.m-box {
+    margin-top: 40px;
+    text-align: center;
+    img {
+        max-height: 179px;
+    }
+}
+
+.l-box {
+    text-align: center;
+    img {
+        width: 100%;
+    }
+    h1 {
+        text-transform: uppercase;
+        margin-top: 40px;
+    }
+    p {
+        font-size: 24px;
+        color: $text-color;
+        font-weight: 100;
+    }
+}

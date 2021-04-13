@@ -1,0 +1,40 @@
+<br/>
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!{{path}}" title="Ir a Buscar Cargo">Cargo <span class="badge">1</span></a>
+        </li>
+        <li>
+            <a href="#!{{path}}/{{recurso.id}}/editar" title="Ir a modificar Cargo">Gestionar Cargo <span
+                    class="badge">2</span></a>
+        </li>
+        <li class="active">
+            <a> Consultar Cargo <span class="badge">3</span></a>
+        </li>
+    </ul>
+</div>
+
+<view-directive data-require= "LISTAR_CARGOS" data-require-fail="redirect">
+    <titulo>Consultar Cargos existentes</titulo>
+    <descripcion>A través de esta sección usted podrá consultar los datos de los Cargos existentes.
+    </descripcion>
+    <view>
+        <dt>Descripción :</dt>
+        <dd>{{recurso.pk.descripcion}}</dd>
+        <dt>Línea :</dt>
+        <dd>{{recurso.linea}}</dd>
+        <dt>Categoría :</dt>
+        <dd>{{recurso.categoria}}</dd>
+        <dt>Presupuestado :</dt>
+        <dd>{{recurso.presupuestado | number}}</dd>
+        <dt>Funcion Real :</dt>
+        <dd>{{recurso.funcionReal}}</dd>
+        <dt>N&uacute;mero Puesto Trabajo :</dt>
+        <dd>{{recurso.numeroPuestoTrabajo}}</dd>
+        <dt>Estado :</dt>
+        <dd>{{recurso.estado}}</dd>
+        <dt>Asignado a :</dt>
+        <dd>{{recurso.legajo}}</dd>
+    </view>
+</view-directive>

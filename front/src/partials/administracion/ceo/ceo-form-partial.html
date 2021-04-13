@@ -1,0 +1,106 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!{{path}}" title="Ir a Buscar CEO">CEO <span class="badge">1</span></a>
+        </li>
+        <li class="active">
+            <a>Gestionar CEO <span class="badge">2</span></a>
+        </li>
+        <li>
+            <a> Consultar CEO </a>
+        </li>
+    </ul>
+</div>
+
+<form-directive data-require= "CREAR_CEO" data-require-fail="redirect">
+    <titulo>Gestionar Configuración estructural organizativa (CEO)</titulo>
+    <descripcion>A través de esta sección usted podrá gestionar los datos de las Configuraciones estructurales
+        organizativas.
+    </descripcion>
+    <form>
+        <!--ID
+        <div class="form-group" ng-if="!isCrear()">
+            <label class="col-sm-3 control-label">ID :</label>
+            <div class="col-sm-7">
+                <label class="control-label">{{recurso.id}}</label>
+                <p class="help-block">Identificador.</p>
+            </div>
+        </div>-->
+        <!--Código-->
+        <div class="form-group">
+            <label for="codigo" class="col-sm-3 control-label">Código* :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.codigo" class="form-control" id="codigo" 
+                    required ng-disabled="!activo" capitalize>
+                <p class="help-block">Código.</p>
+            </div>
+        </div>
+        <!--Número Puesto
+        <div class="form-group">
+            <label for="nroPuesto" class="col-sm-3 control-label">Número Puesto :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.nroPuesto" class="form-control" id="nroPuesto">
+                <p class="help-block">Número Puesto.</p>
+            </div>
+        </div>-->
+        <!--Titulo Unidad
+        <div class="form-group">
+            <label for="tituloUnidad" class="col-sm-3 control-label">Titulo Unidad :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.tituloUnidad" class="form-control" id="tituloUnidad">
+                <p class="help-block">Titulo Unidad.</p>
+            </div>
+        </div>-->
+        <!--Denominación-->
+        <div class="form-group">
+            <label for="denominacion" class="col-sm-3 control-label">Denominación* :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="recurso.denominacion" class="form-control" id="denominacion" required ng-disabled="!activo" capitalize>
+                <p class="help-block">Denominación.</p>
+            </div>
+        </div>
+
+        <!--Nivel CUO-->
+        <div class="form-group">
+            <label for="nivelCuo" class="col-sm-3 control-label">CUO* :</label>
+            <div class="col-sm-7">
+                <!--<input type="text" ng-model="recurso.nivelCuo" class="form-control" id="nivelCuo">-->
+                <select id="nivelCuo" type="text" class="form-control" 
+                    data-ng-options="cuo.nivel + '.' + cuo.subNivel + '.' + cuo.numero + ' ' + cuo.denominacion for cuo in listaCuo" 
+                    data-ng-model="recurso.cuo" required ng-disabled="!activo"></select>
+                <p class="help-block">Clasificador de Unidad Organizativa</p>
+            </div>
+        </div>
+
+        <!--Orientación Func.-->
+        <div class="form-group">
+            <label for="orientacionFunc" class="col-sm-3 control-label">Orientación Funcional* :</label>
+            <div class="col-sm-7">
+                <select id="orientacionFunc" type="text" class="form-control" 
+                            data-ng-options="orientacionFunc.nombre for orientacionFunc in listaOrientacionFunc"
+                    data-ng-model="recurso.orientacionFunc" required></select>
+                <p class="help-block">Orientación Funcional.</p>
+            </div>
+        </div>
+
+       <div class="form-group">
+            <label for="inicioVigencia" class="col-sm-3 control-label">Inicio Vigencia* :</label>
+            <div class="col-sm-7">
+                <input type="date" ng-model="inicioVigencia" id="inicioVigencia" 
+                     ng-disabled="!activo" ng-change="inicioVigenciaChange(inicioVigencia)">
+                <p class="help-block">Inicio Vigencia.</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="finVigencia" class="col-sm-3 control-label">Fin Vigencia* :</label>
+            <div class="col-sm-7">
+                <input type="date" ng-model="finVigencia" id="finVigencia" 
+                    ng-change="finVigenciaChange(finVigencia)">
+                <p class="help-block">Fin Vigencia.</p>
+            </div>
+        </div>
+
+    </form>
+</form-directive>

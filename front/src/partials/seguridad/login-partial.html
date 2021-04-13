@@ -1,0 +1,43 @@
+<div class="row">
+    <br/>
+    <section class="col-md-12">
+        <section class="form-wrapper">
+            <div class="top-block">
+                <h2 class="title-top">Ingresar al Sistema</h2>
+                <p>
+                    Bienvenido al Sistema de Concursabilidad Transparente y Equitativa, mediante este sistema, se busca principalmente fortalecer el proceso de concursabilidad administrando los puestos de trabajo. De manera a, realizar la asignación de cargos según las regulaciones de las normativas vigentes y por reglas técnicas predefinidas.
+                </p>
+            </div>
+            <section class="wrapper form-horizontal" role="form">
+                <form ng-submit="login()">
+                    <div class="form-group">
+                        <label for="username" class="col-sm-3 control-label">Usuario:*</label>
+                        <div class="col-sm-7">
+                            <input type="text" ng-model="usuario.username" class="form-control" id="username">
+                            <p class="help-block">Nombre de usuario, correo electronico o n&uacutemero de c&eacute;dula.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contrasenha" class="col-sm-3 control-label">Contraseña:*</label>
+                        <div class="col-sm-7">
+                            <input type="password" ng-model="usuario.password" class="form-control" id="contrasenha">
+                            <p class="help-block">Contrase&ntilde;a de acceso al sistema.</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <button class="btn btn-primary" type="submit" class="btn btn-primary">
+                        <i class="fa fa-sign-in"></i>&nbsp;Ingresar
+                    </button>
+                </form>
+            </section>
+            <hr/>
+            <!--<button class="btn btn-default" ng-click="registrarse()" ng-if="tieneRegistro()">-->
+            <button class="btn btn-default" ng-click="registrarse()" >
+                <i class="fa fa-user-plus"></i>&nbsp;Registrarse
+            </button>
+            <a style="padding-left:16px;" href="#!/seguridad/resetear-contrasena">
+                <i>Olvidaste tu contraseña</i>
+            </a>
+        </section>
+    </section>
+</div>

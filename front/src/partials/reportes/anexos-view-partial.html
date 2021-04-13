@@ -1,0 +1,411 @@
+<br/>
+<div class="wizard">
+    <ul class="wizard-breadcrumbs">
+        <li>
+            <a href="#!{{path}}" title="Ir a Explorar Anexos">Anexos <span class="badge">1</span></a>
+        </li>
+        <li class="active">
+            <a> Consultar Anexo <span class="badge">2</span></a>
+        </li>
+    </ul>
+</div>
+
+<!-- Nav tabs 
+<br>
+<ul class="nav nav-tabs" role="tablist" ng-if="!isCrear()">
+    <li role="presentation">
+        <a data-target="#cabecera" role="tab" data-toggle="tab">Anexo</a>
+    </li>
+    <li role="presentation">
+        <a data-target="#legajos" role="tab" data-toggle="tab">Asignaciones</a>
+    </li>
+</ul>-->
+
+<!-- Tab panes 
+<div class="tab-content">
+
+    <div role="tabpanel" class="tab-pane" id="cabecera">
+
+        <view-directive data-require="LISTAR_ANEXOS" data-require-fail="redirect">
+            <titulo>Anexo</titulo>
+            <descripcion>
+                A través de esta sección usted podrá consultar los datos del Anexo.
+            </descripcion>
+
+            <view>-->
+
+
+<section class="form-wrapper">
+    <div class="top-block">
+        <h2 class="title-top">Datos Personales</h2>
+        <p>
+            A través de esta sección usted podrá consultar los datos personales del funcionario.
+        </p>
+    </div>
+    <div class="wrapper form-horizontal">
+        <dl class="dl-horizontal">
+
+            <!--<div><b><u>Datos Personales</u></b></div><br>
+                <div>-->
+            <dt>Nombre y Apellido:</dt>
+            <dd>
+                {{recurso.nombre}} - {{recurso.apellido}}
+            </dd>
+            <dt>C&eacute;dula de identidad:</dt>
+            <dd>
+                {{recurso.cedulaIdentidad|number}}
+            </dd>
+            <dt>Sexo:</dt>
+            <dd>
+                {{recurso.sexo == 'M' ? 'MASCULINO':'FEMENINO'}}
+            </dd>
+    </div>
+    <br>
+
+    <div class="top-block">
+        <h2 class="title-top">Datos Generales</h2>
+        <p>
+            A través de esta sección usted podrá consultar los datos Generales.
+        </p>
+    </div>
+
+    <div class="wrapper form-horizontal">
+        <dl class="dl-horizontal">
+
+            <!--<div><b><u>Datos Generales</u></b></div><br>
+                <div>-->
+            <dt>Año:</dt>
+            <dd>
+                {{recurso.anho}}
+            </dd>
+            <dt>Mes:</dt>
+            <dd>
+                {{recurso.mes}}
+            </dd>
+            <dt>Nivel Entidad:</dt>
+            <dd>
+                {{recurso.nivelEntidad}}
+            </dd>
+            <dt>Entidad:</dt>
+            <dd>
+                {{recurso.entidad}}
+            </dd>
+            <dt>OEE:</dt>
+            <dd>
+                {{recurso.oee}}
+            </dd>
+            <dt>Linea:</dt>
+            <dd>
+                {{recurso.linea}}
+            </dd>
+            <dt>Objeto Gasto:</dt>
+            <dd>
+                {{recurso.objetoGasto}}
+            </dd>
+            <dt>Fuente de Financiamiento:</dt>
+            <dd>
+                {{recurso.fuenteFinanciamiento}}
+            </dd>
+            <dt>Número de Puesto de Trabajo:</dt>
+            <dd>
+                {{recurso.numeroPuestoTrabajo}}
+            </dd>
+    </div>
+
+    <br>
+
+    <div class="top-block">
+        <h2 class="title-top">Datos Presupuestarios de Estructura</h2>
+        <p>
+            A través de esta sección usted podrá consultar los datos Presupuestarios.
+        </p>
+    </div>
+
+    <div class="wrapper form-horizontal">
+        <dl class="dl-horizontal">
+
+            <!--<div><b><u>Datos Presupuestarios</u></b></div><br>
+                <div>-->
+            <dt>Programa:</dt>
+            <dd>
+                {{recurso.programa}}
+            </dd>
+            <dt>SubPrograma:</dt>
+            <dd>
+                {{recurso.subprograma}}
+            </dd>
+    </div>
+
+    <br>
+
+    <div class="top-block">
+        <h2 class="title-top">Datos de Cargos Presupuestarios</h2>
+        <p>
+            A través de esta sección usted podrá consultar los datos Presupuestarios del Cargo.
+        </p>
+    </div>
+
+    <div class="wrapper form-horizontal">
+        <dl class="dl-horizontal">
+
+            <!--<div><b><u>Datos de Cargos Presupuestarios</u></b></div><br>
+                <div>-->
+
+            <dt>Categoria:</dt>
+            <dd>{{recurso.categoria}}</dd>
+
+            <dt>Concepto:</dt>
+            <dd>{{recurso.concepto}}</dd>
+
+            <dt>Presupuestado:</dt>
+            <dd>{{recurso.presupuestado | currency: "Gs.":0}}</dd>
+
+            <dt>Devengado:</dt>
+            <dd>{{recurso.devengado | currency: "Gs.":0}}</dd>
+
+    </div>
+
+    <br>
+
+    <div class="top-block">
+        <h2 class="title-top">Datos Ocupacionales</h2>
+        <p>
+            A través de esta sección usted podrá consultar los datos Ocupacionales.
+        </p>
+    </div>
+
+    <div class="wrapper form-horizontal">
+        <dl class="dl-horizontal">
+            <!--<div><b><u>Datos Ocupacionales</u></b></div><br>
+                <div>-->
+            <dt>Cargo:</dt>
+            <dd>{{recurso.cargo}}</dd>
+            <dt>Funcion real:</dt>
+            <dd>{{recurso.funcionReal}}</dd>
+            <dt>N&uacute;mero Puesto de Trabajo:</dt>
+            <dd>{{recurso.numeroPuestoTrabajo}}</dd>
+            <dt>Vinculaci&oacute;n Laboral:</dt>
+            <dd>{{recurso.vinculacionFuncionario}}</dd>
+    </div>
+
+    <br>
+
+    <div class="top-block">
+        <h2 class="title-top">Datos CEO</h2>
+        <p>
+            A través de esta sección usted podrá consultar los datos del CEO.
+        </p>
+    </div>
+
+    <div class="wrapper form-horizontal">
+        <dl class="dl-horizontal">
+
+            <!--<div><b><u>Datos Estructura</u></b></div><br>
+                <div>-->
+            <dt>C&oacute;digo:</dt>
+            <dd>{{recurso.codigoCeo}}</dd>
+            <dt>Denominaci&oacute;n:</dt>
+            <dd>{{recurso.denominacionCeo}}</dd>
+    </div>
+
+    <br>
+
+    <div class="top-block">
+        <h2 class="title-top">Datos CUO</h2>
+        <p>
+            A través de esta sección usted podrá consultar los datos del CUO.
+        </p>
+    </div>
+
+    <div class="wrapper form-horizontal">
+        <dl class="dl-horizontal">
+            <!--<div><b><u>Clasificaci&oacute;n CUO</u></b></div><br>
+                <div>-->
+            <dt>C&oacute;digo:</dt>
+            <dd>{{recurso.nivelCuo == null ? '' : recurso.nivelCuo + '.' + recurso.subNivelCuo 
+                + '.' + recurso.numeroCuo}}</dd>
+            <!--<dd>{{recurso.nivelCuo}}</dd>-->
+            <dt>Denominaci&oacute;n:</dt>
+            <dd>{{recurso.denominacionCuo}}</dd>
+    </div>
+
+    <br>
+
+    <div class="top-block">
+        <h2 class="title-top">Datos CPT General</h2>
+        <p>
+            A través de esta sección usted podrá consultar los datos del CPT General.
+        </p>
+    </div>
+
+    <div class="wrapper form-horizontal">
+        <dl class="dl-horizontal">
+
+            <!--<div><b><u>DATOS ASOCIADOS AL CPT GENERAL</u></b></div><br>
+                <div>-->
+            <dt>Nivel:</dt>
+            <dd>{{recurso.nivelCpt}}</dd>
+            <dt>SubNivel:</dt>
+            <dd>{{recurso.subNivelCpt}}</dd>
+            <dt>N&uacute;mero:</dt>
+            <dd>{{recurso.numeroCpt}}</dd>
+            <dt>Denominaci&oacute;n:</dt>
+            <dd>{{recurso.denominacionCpt}}</dd>
+            <dt>Titular Unidad:</dt>
+            <dd>{{recurso.titularUnidad?'S':'N'}}</dd>
+    </div>
+
+    <br>
+
+    <div ng-if="!esHacienda" class="top-block">
+        <h2 class="title-top">Datos CPT - Especifico Escalafonario</h2>
+        <p>
+            A través de esta sección usted podrá consultar los datos del CPT Escalafonario.
+        </p>
+    </div>
+
+    <div ng-if="!esHacienda" class="wrapper form-horizontal">
+        <dl class="dl-horizontal">
+            <!--<div><b><u>DATOS CPT - ESPECIFICO ESCALAFONARIO</u></b></div><br>
+                <div>-->
+            <dt>N&uacute;mero Secuencial:</dt>
+            <dd>{{recurso.numeroSecuencialCptE}}</dd>
+            <dt>Ambito:</dt>
+            <dd>{{recurso.ambitoCptE}}</dd>
+            <dt>Nivel:</dt>
+            <dd>{{recurso.nivelCptE}}</dd>
+            <dt>Categoria:</dt>
+            <dd>{{recurso.categoriaCptE}}</dd>
+            <dt>Denominaci&oacute;n:</dt>
+            <dd>{{recurso.denominacionCptE}}</dd>
+    </div>
+
+    <br>
+
+    <div class="top-block">
+        <h2 class="title-top">Datos CPT - Especifico Funcional</h2>
+        <p>
+            A través de esta sección usted podrá consultar los datos del CPT Funcional.
+        </p>
+    </div>
+
+    <div class="wrapper form-horizontal">
+        <dl class="dl-horizontal">
+            <!--<div><b><u>DATOS CPT - ESPECIFICO FUNCIONAL</u></b></div><br>
+                <div>-->
+            <dt>N&uacute;mero Secuencial:</dt>
+            <dd>{{recurso.numeroSecuencialCptF}}</dd>
+            <dt>Ambito:</dt>
+            <dd>{{recurso.ambitoCptF}}</dd>
+            <dt>C&oacute;digo Proceso:</dt>
+            <dd>{{recurso.codigoProceso}}</dd>
+            <dt>Denominaci&oacute;n:</dt>
+            <dd>{{recurso.denominacionCptF}}</dd>
+            <dt>Orientaci&oacute;n Funcional:</dt>
+            <dd>{{recurso.orientacionFuncional}}</dd>
+    </div>
+
+    <br>
+
+    <div class="top-block">
+        <h2 class="title-top">Clasificador de Tramos Salariales</h2>
+        <p>
+            A través de esta sección usted podrá consultar los datos del Tramo Salarial.
+        </p>
+    </div>
+
+    <div class="wrapper form-horizontal">
+        <dl class="dl-horizontal">
+            <!--<div><b><u>CLASIFICADOR DE TRAMOS SALARIALES</u></b></div><br>
+                <div>-->
+            <dt>Tramo:</dt>
+            <dd>{{recurso.tramo}}</dd>
+            <dt>Monto m&iacute;nimo:</dt>
+            <dd>{{recurso.minimo | currency: "Gs.":0}}</dd>
+            <dt>Monto m&aacute;ximo:</dt>
+            <dd>{{recurso.maximo | currency: "Gs.":0}}</dd>
+    </div>
+
+    <!--</view>
+        </view-directive>
+    </div>-->
+
+    <br>
+
+    <div class="tab-pane" id="legajos" ng-controller="AsignarLegajoCeoCtrl">
+
+        <form-directive ng-if="tienePermiso('CLASIFICAR_CEO')">
+
+            <titulo>Asignaci&oacute;n CEO</titulo>
+            <descripcion>
+                A través de esta sección usted podrá realizar la asignaci&oacute;n de CEO para legajos.
+            </descripcion>
+
+            <form>
+                
+                <div ng-if="tienePermiso('CLASIFICAR_CEO')" class="form-group">
+                    <label for="ceo" class="col-sm-3 control-label">CEO :</label>
+                    <div class="col-sm-7">
+                        <select id="ceo" type="text" class="form-control" 
+                            data-ng-options="ceo.codigo + ' - ' + ceo.denominacion + ' - ' + ceo.cuo.nivel + '.' + ceo.cuo.subNivel + '.' + ceo.cuo.numero for ceo in listaCeo" 
+                            ng-model="ceo" ng-change="onChangeCeo(ceo)"></select>
+                        <p class="help-block">Configuración estructural organizativa.</p>
+                    </div>
+                </div>
+            </form>
+        </form-directive>
+
+    </div>
+
+
+    <div class="tab-pane" id="legajos" ng-controller="AsignarLegajoCtrl">
+
+        <form-directive ng-if="tienePermiso('CLASIFICAR_CPT')">
+
+            <titulo>Asignaciones CPT</titulo>
+            <descripcion>
+                A través de esta sección usted podrá realizar la asignaci&oacute;n de CPT para legajos.
+            </descripcion>
+
+            <form>
+                
+                <div ng-if="tienePermiso('CLASIFICAR_CPT')" class="form-group">
+                    <label for="nivelCpt" class="col-sm-3 control-label">CPT General :</label>
+                    <div class="col-sm-7">
+                        <select id="nivelCpt" type="text" class="form-control" 
+                            data-ng-options="cpt.nivel + '.' + cpt.subNivel + '.' + cpt.numeroGasto 
+                                    + ' ' + cpt.denominacion for cpt in listaCpt" ng-model="c.cpt" 
+                                    ng-change="onChangeCpt(c.cpt)"></select>
+                        <p class="help-block">Nivel de clasificador de puestos de trabajo.</p>
+                    </div>
+                </div>
+
+                <div ng-if="tienePermiso('CLASIFICAR_CPT') && !esHacienda" class="form-group">
+                        <label for="cpte" class="col-sm-3 control-label">CPT EE :</label>
+                        <div class="col-sm-7">
+                            <select id="cpte" type="text" class="form-control" 
+                            data-ng-options="cpte.numero + ' ' + cpte.denominacion 
+                                + ' - ' + cpte.nombreCategoria for cpte in listaCptE" 
+                            ng-model="cptE" ng-change="onChangeCptE(cptE)"></select>
+                            <p class="help-block">
+                                Clasificador de puesto de trabajo específico escalafonario.</p>
+                        </div>
+                    </div>
+
+                <div ng-if="tienePermiso('CLASIFICAR_CPT')" class="form-group">
+                    <label for="cptf" class="col-sm-3 control-label">CPT EF :</label>
+                    <div class="col-sm-7">
+                        <select id="cptf" type="text" class="form-control" 
+                            data-ng-options="cptf.nro + ' ' + cptf.den for cptf in listaCptF" 
+                            ng-model="cptF" ng-change="onChangeCptF(cptF)"></select>
+                        <p class="help-block">
+                            Clasificador de puesto de trabajo específico funcional.</p>
+                    </div>
+                </div>
+
+            </form>
+        </form-directive>
+
+    </div>
+
+</section>
